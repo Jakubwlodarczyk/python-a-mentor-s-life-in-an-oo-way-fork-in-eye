@@ -5,8 +5,19 @@ class Student(Person):
 
     def __init__(self, first_name, last_name, year_of_birth, gender, coffee, energy, knowledge, motivation, sweets):
         Person.__init__(self, first_name, last_name, year_of_birth, gender, coffee, energy)
-        self.knowledge = knowledge
-        self.motivation = motivation
+
+        #Data validation for knowledge level
+        try:
+            self.knowledge = int(knowledge)
+        except:
+            raise ValueError('Knowledge level must be an integer value')
+
+        #data validation fod motivation level
+        try:
+            self.motivation = int(motivation)
+        except:
+            raise ValueError('Motivation level must be an integer value')
+
         self.sweets = sweets
 
     @classmethod
@@ -21,7 +32,7 @@ class Student(Person):
                     list_of_students.append(students)
         except FileNotFoundError:
             print("\nOops! The file does not exist!")
-        print()
+
         return list_of_students
 
 
