@@ -27,6 +27,7 @@ Person()
 ### ```create_by_csv```
 
 Gets a csv file path as an argument (the csv contains all the data needed to instantiate a mentor object) and gives back a list of mentors.
+raise an error, if empty
 
 
 #### Arguments
