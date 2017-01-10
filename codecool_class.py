@@ -3,6 +3,7 @@ from student import Student
 import csv
 
 class CodecoolClass:
+
     def __init__(self, location, year, mentors, students):
         self.location = location
         self.year = year
@@ -30,6 +31,26 @@ class CodecoolClass:
             if mentor.first_name == full_name_mentor[0] and mentor.last_name == full_name_mentor[1]:
                 remember = mentor
         return remember
+
+			
+	def presentation():
+	    print('\npresentation')
+
+
+	def call_up():
+	    print('\ncall_up')
+
+	
+	def cofee():
+	    print('\ncofee')
+
+
+	def private_mentoring():
+	    print('\nprivate_mentoring')
+
+	def checkpoing():
+	    print('\nheckpoing')
+	
 
 
 
