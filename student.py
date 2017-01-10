@@ -21,8 +21,8 @@ class Student(Person):
                     list_of_students.append(students)
         except FileNotFoundError:
             print("\nOops! The file does not exist!")
-
+        print()
         return list_of_students
 
-    
+
 Student.create_by_csv('data/students.csv')
