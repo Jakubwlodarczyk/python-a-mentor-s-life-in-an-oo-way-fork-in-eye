@@ -2,6 +2,7 @@ from mentor import Mentor
 from student import Student
 import csv
 
+
 class CodecoolClass:
 
     def __init__(self, location, year, mentors, students):
@@ -32,25 +33,20 @@ class CodecoolClass:
                 remember = mentor
         return remember
 
-			
-	def presentation():
-	    print('\npresentation')
+        def presentation():
+            print('\npresentation')
+        pass
 
+        def call_up():
+            print('\ncall_up')
+        pass
 
-	def call_up():
-	    print('\ncall_up')
+        def cofee():
+            print('\ncofee')
+        pass
 
-	
-	def cofee():
-	    print('\ncofee')
+        def private_mentoring():
 
-
-	def private_mentoring():
-	    print('\nprivate_mentoring')
-
-	def checkpoing():
-	    print('\nheckpoing')
-	
-
-
-
+        def checkpoing():
+            print('\nheckpoing')
+        pass

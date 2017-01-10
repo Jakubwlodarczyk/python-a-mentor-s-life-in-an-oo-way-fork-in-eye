@@ -5,6 +5,7 @@ class Person:
         boolean_list = ['True', 'False']
         gender_list = ['male', 'female', 'notsure']
 
+        # below we check if the attributes are empty, or not valid
         if first_name is None:
             raise TypeError("Please write only a letters")
         if last_name is None:
