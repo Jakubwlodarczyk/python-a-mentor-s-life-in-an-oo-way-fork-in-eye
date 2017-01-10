@@ -33,20 +33,17 @@ class CodecoolClass:
                 remember = mentor
         return remember
 
-        def presentation():
-            print('\npresentation')
-        pass
+    def presentation():
+        print('\npresentation')
 
-        def call_up():
-            print('\ncall_up')
-        pass
+    def call_up():
+        print('\ncall_up')
 
-        def cofee():
-            print('\ncofee')
-        pass
+    def cofee():
+        print('\ncofee')
 
-        def private_mentoring():
+    def private_mentoring():
+        print('\nprivate_mentoring')
 
-        def checkpoing():
-            print('\nheckpoing')
-        pass
+    def checkpoing():
+        print('\nheckpoing')
