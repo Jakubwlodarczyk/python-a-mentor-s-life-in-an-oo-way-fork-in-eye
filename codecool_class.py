@@ -1,6 +1,8 @@
 from mentor import Mentor
 from student import Student
+from story import choose_student
 import csv
+
 
 
 class CodecoolClass:
@@ -43,6 +45,13 @@ class CodecoolClass:
 
     def cofee():
         print('\ncofee')
+        os.system('clear')
+        print('Students want to drink coffee, but\nthe work is not done yet. You can allow only one student to go kitchen room. Choose one from the list:')
+        for n,student in enumerate(self.students):
+            print('{} {}{}'.format(n+1, student.first_name, student.last_name))
+        student_name = story.chose_student
+        print(choose_name, choose_lastname)
+        print(type(choose_student))
 
     def private_mentoring():
         pass
