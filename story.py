@@ -67,7 +67,7 @@ def main():
         "School @ {}, in year {} is created, with {} mentors and 53 students\n".format(codecool_class.location,
                                                                                        codecool_class.year,
                                                                                        len_mentors))
-    chosen_mentor = CodecoolClass.choose_mentor()
+    chosen_mentor = choose_mentor()
     CodecoolClass.presentation()
     story_menu()
     print('')

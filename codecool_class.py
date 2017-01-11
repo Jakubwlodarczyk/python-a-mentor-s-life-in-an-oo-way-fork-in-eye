@@ -37,13 +37,24 @@ class CodecoolClass:
 
     def presentation():
         #print('\npresentation')
-        chosen_student = story.choose_student()
+        chosen_student = CodecoolClass.choose_student()
         if chosen_student.motivation < 60:
             chosen_student.energy -= 10
             print("Student's energy has been decreased by 10 because his motivation is low :(\n")
         else:
             chosen_student.knowledge += 15
             print("Student's knowledge has been increased by 15!\n")
+
+    def choose_student():
+        student_array = Student.create_by_csv('data/students.csv')
+        number = 1
+        for student in student_array:
+            print(number, student.first_name)
+            number += 1
+        choosen = input("Choose student: ")
+        choosen = int(choosen)
+        choosen_student = student_array[choosen-1]
+        return choosen_student
 
     def call_up():
         print('\ncall_up')
