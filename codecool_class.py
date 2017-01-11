@@ -38,7 +38,14 @@ class CodecoolClass:
         return remember
 
     def presentation():
-        print('\npresentation')
+        #print('\npresentation')
+        chosen_student = story.choose_student()
+        if chosen_student.motivation < 60:
+            chosen_student.energy -= 10
+            print("Student's energy has been decreased by 10 because his motivation is low :(\n")
+        else:
+            chosen_student.knowledge += 15
+            print("Student's knowledge has been increased by 15!\n")
 
     def call_up():
         print('\ncall_up')
@@ -59,14 +66,5 @@ class CodecoolClass:
     def checkpoing():
         print('\nheckpoing')
 
-    #@staticmethod
-    def choose_mentor():
-        mentors_object_list = Mentor.create_by_csv('data/mentors.csv')
-        counter = 1
-        for mentor in mentors_object_list:
-            print(str(counter) + ".", mentor.first_name, mentor.last_name, mentor.nickname)
-            counter += 1
-        choice = int(input("\nChoose mentor you want to play: "))
-        print("You have chosen ", mentors_object_list[choice-1])
-        return mentors_object_list[choice-1]
+
 

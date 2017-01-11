@@ -20,6 +20,9 @@ class Student(Person):
 
         self.sweets = sweets
 
+    def __str__(self):
+        return "{} {}".format(self.first_name,  self.last_name)
+
     @classmethod
     def create_by_csv(cls, file_path):
 
