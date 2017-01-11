@@ -18,7 +18,7 @@ class Student(Person):
         except:
             raise ValueError('Motivation level must be an integer value')
 
-        self.sweets = sweets
+        self.sweets = int(sweets)
 
     @classmethod
     def create_by_csv(cls, file_path):
