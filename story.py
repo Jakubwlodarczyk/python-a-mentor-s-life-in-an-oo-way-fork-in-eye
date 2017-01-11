@@ -29,17 +29,24 @@ def choose_activity():
 
 
 def story_menu():
-    
-
     options = ['Presentation', 'Call up', 'Cofee', 'Private Mentoring', 'Checkpoint']
     print('Event list:')
     for i,n in enumerate(options):
         print(i+1, n)
 
 def main():
-    while True:
-        story_menu()
-        print('')
-        choose_activity()
+    """Main function"""
+    codecool_class = CodecoolClass.create_local_school()
+    len_mentors = len(Mentor.create_by_csv('data/mentors.csv'))
+    print("Mentors are initialized from CSV.")
+    print("Students are initialized from CSV.")
+    print(
+        "School @ {}, in year {} is created, with {} mentors and 53 students\n".format(codecool_class.location,
+                                                                                       codecool_class.year,
+                                                                                       len_mentors))
+    CodecoolClass.choose_mentor()
+    story_menu()
+    print('')
+    choose_activity()
 
 main()
