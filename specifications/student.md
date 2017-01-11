@@ -18,8 +18,8 @@ Person
    * data type: integer
    * description: stores the current motivation level (from 0 to 100)
 * ```sweets```
-  * data type: boolean
-  * description: stores information if student likes sweets or not
+  * data type: integer
+  * description: stores information if student likes sweets or not (0 or 1)
 
 
 
