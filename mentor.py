@@ -3,10 +3,11 @@ import csv
 
 
 class Mentor(Person):
-    def __init__(self, first_name, last_name, year_of_birth, gender, coffee, energy, nickname, involvment, irritation, sweets):
+
+    def __init__(self, first_name, last_name, year_of_birth, gender, coffee, energy, nickname, engagement, irritation, sweets):
         Person.__init__(self, first_name, last_name, year_of_birth, gender, coffee, energy)
         self.nickname = nickname
-        self.involvment = involvment
+        self.engagement = engagement
         self.irritation = irritation
         self.sweets = sweets
 
@@ -20,7 +21,8 @@ class Mentor(Person):
                 all_mentors = csv.reader(mentor_file, delimiter=',', quotechar=',')
                 mentors_list = []
                 for mentor in all_mentors:
-                    mentors = Mentor(mentor[0], mentor[1], mentor[2], mentor[3], mentor[4], mentor[5], mentor[6], mentor[7], mentor[8], mentor[9])
+                    mentors = Mentor(mentor[0], mentor[1], mentor[2], mentor[3], mentor[4],
+                                     mentor[5], mentor[6], mentor[7], mentor[8], mentor[9])
                     mentors_list.append(mentors)
         except FileNotFoundError:
             print("File does not exist")
