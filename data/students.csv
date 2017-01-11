@@ -1,5 +1,5 @@
-Ania, Polak, 1993, female, True, 45, 25, 70, True
-Ika, Graboń, 1987, female, True, 3, 32, 50, True
-Alexander, Toropowski, 1991, male, True, 50, 60, 12, False
-Jakub, Włodarczyk, 1991, male, True, 40, 30, 90, True
-Krzysiek, Dzioba, 1993, male, False, 60, 40, 80, False
+Ania, Polak, 1993, female, True, 45, 25, 70, 1
+Ika, Graboń, 1987, female, True, 3, 32, 50, 1
+Alexander, Toropowski, 1991, male, True, 50, 60, 12, 0
+Jakub, Włodarczyk, 1991, male, True, 40, 30, 90, 1
+Krzysiek, Dzioba, 1993, male, False, 60, 40, 80, 0
