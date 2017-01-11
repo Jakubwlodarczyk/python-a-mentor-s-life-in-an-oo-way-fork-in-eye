@@ -38,9 +38,9 @@ class CodecoolClass:
     def presentation():
         print('\npresentation')
 
-    def call_up():
-        print('\ncall_up')
-
+    def call_up(self, mentor, student):
+        #print('\ncall_up')
+        
     def cofee():
         print('\ncofee')
 
@@ -60,4 +60,3 @@ class CodecoolClass:
         choice = int(input("\nChoose mentor you want to play: "))
         print("You have chosen ", mentors_object_list[choice-1])
         return mentors_object_list[choice-1]
-
