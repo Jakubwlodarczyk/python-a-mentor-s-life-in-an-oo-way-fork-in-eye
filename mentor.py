@@ -29,4 +29,6 @@ class Mentor(Person):
 Mentor.create_by_csv('data/mentors.csv')
 
 '''mentors_array = Mentor.create_by_csv('data/mentors.csv')
-print(mentors_array[0]) # check elements in my list for now '''
+print(mentors_array[0].sweets)  # check elements in my list for now
+for mentor in mentors_array:  # yay its so brilliant!
+    print(mentor.first_name, mentor.gender)'''
