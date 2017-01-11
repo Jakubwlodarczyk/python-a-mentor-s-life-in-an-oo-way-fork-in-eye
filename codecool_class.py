@@ -11,14 +11,15 @@ class CodecoolClass:
         self.mentors = mentors
         self.students = students
 
-    def create_local_school(self):
-        self.mentors = funkcja_Iki()
-        self.students = funkcja_Ani()
-        codecool_class = CodecoolClass("Krakow", 2016, funkcja_Iki(), funkcja_Ani())
+    def create_local_school():
+        mentors = Mentor.create_by_csv('data/mentors.csv')
+        students = Student.create_by_csv('data/students.csv')
+        codecool_class = CodecoolClass("Krakow", 2016, mentors, students)
         return codecool_class
 
     def find_student_by_full_name(self):
-        full_name_student = input("Type a student: ")
+        full_name_student_not_list = input("Type a student: ")
+        full_name_student = full_name_student_not_list.split()
         remember = "me"
         for student in self.students:
             if student.first_name == full_name_student[0] and student.last_name == full_name_student[1]:
@@ -26,7 +27,8 @@ class CodecoolClass:
         return remember
 
     def find_mentor_by_full_name(self):
-        full_name_mentor = input("Type a mentor: ")
+        full_name_mentor_not_list = input("Type a mentor: ")
+        full_name_mentor = full_name_mentor_not_list.split()
         remember = "me"
         for mentor in self.mentors:
             if mentor.first_name == full_name_mentor[0] and mentor.last_name == full_name_mentor[1]:
@@ -43,7 +45,19 @@ class CodecoolClass:
         print('\ncofee')
 
     def private_mentoring():
-        print('\nprivate_mentoring')
+        mentors_array = Mentor.create_by_csv('data/mentors.csv')
 
     def checkpoing():
         print('\nheckpoing')
+
+    #@staticmethod
+    def choose_mentor():
+        mentors_object_list = Mentor.create_by_csv('data/mentors.csv')
+        counter = 1
+        for mentor in mentors_object_list:
+            print(str(counter) + ".", mentor.first_name, mentor.last_name, mentor.nickname)
+            counter += 1
+        choice = int(input("\nChoose mentor you want to play: "))
+        print("You have chosen ", mentors_object_list[choice-1])
+        return mentors_object_list[choice-1]
+

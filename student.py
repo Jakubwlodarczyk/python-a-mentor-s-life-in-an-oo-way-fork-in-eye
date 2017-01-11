@@ -36,4 +36,4 @@ class Student(Person):
         return list_of_students
 
 
-Student.create_by_csv('data/students.csv')
+list_of_student_objects = Student.create_by_csv('data/students.csv')
