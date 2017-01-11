@@ -7,11 +7,11 @@ import os
 codecool_krk = CodecoolClass
 
 
-def choose_activity():
+def choose_activity(mentor):
     user_input = input('Please enter a number: ')
     option = user_input
     if option == "1":
-        codecool_krk.presentation()
+        codecool_krk.presentation(mentor)
     elif option == '2':
         codecool_krk.call_up()
     elif option == '3':
@@ -68,9 +68,9 @@ def main():
                                                                                        codecool_class.year,
                                                                                        len_mentors))
     chosen_mentor = choose_mentor()
-    CodecoolClass.presentation()
+
     story_menu()
     print('')
-    choose_activity()
+    choose_activity(chosen_mentor)
 
 main()

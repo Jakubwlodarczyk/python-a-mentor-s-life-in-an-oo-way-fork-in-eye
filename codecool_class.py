@@ -35,16 +35,12 @@ class CodecoolClass:
                 remember = mentor
         return remember
 
-    def presentation():
-        #print('\npresentation')
-        chosen_student = CodecoolClass.choose_student()
-        if chosen_student.motivation < 60:
-            chosen_student.energy -= 10
-            print("Student's energy has been decreased by 10 because his motivation is low :(\n")
-        else:
-            chosen_student.knowledge += 15
-            print("Student's knowledge has been increased by 15!\n")
-
+    def presentation(self):
+        for student in Student.create_by_csv('data/students.csv'):
+                remember = student.knowledge
+                student.knowledge = student.knowledge + int((self.engagement/100)) + int(int((self.engagement/100)*(student.motivation/4))) + int(student.energy/6)
+                end_student_knowledge = student.knowledge - remember
+                print("Student {} knowledge has been increased by {}.".format(student.first_name, end_student_knowledge) )
 
     def choose_student():
         student_array = Student.create_by_csv('data/students.csv')
@@ -62,6 +58,7 @@ class CodecoolClass:
 
     def call_up(self, mentor, student):
         #print('\ncall_up')
+        pass
 
     def cofee():
         print('\ncofee')
