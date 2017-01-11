@@ -20,11 +20,14 @@ class Student(Person):
 
         self.sweets = sweets
 
+    def __str__(self):
+        return "{} {}".format(self.first_name,  self.last_name)
+
     @classmethod
     def create_by_csv(cls, file_path):
 
         try:
-            with open('data/students.csv') as students_data:
+            with open(file_path) as students_data:
                 student_list = csv.reader(students_data, quotechar=",")
                 list_of_students =[]
                 for student in student_list:
