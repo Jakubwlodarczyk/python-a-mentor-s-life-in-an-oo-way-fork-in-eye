@@ -1,6 +1,8 @@
 from mentor import Mentor
 from student import Student
 import csv
+import os
+import time
 
 
 class CodecoolClass:
@@ -35,29 +37,49 @@ class CodecoolClass:
                 remember = mentor
         return remember
 
-    def presentation():
-        print('\npresentation')
+    def presentation(self):
+        for student in Student.create_by_csv('data/students.csv'):
+                remember = student.knowledge
+                student.knowledge = student.knowledge + int((self.engagement/100)) + int(int((self.engagement/100)*(student.motivation/4))) + int(student.energy/6)
+                end_student_knowledge = student.knowledge - remember
+                print("Student {} knowledge has been increased by {}.".format(student.first_name, end_student_knowledge) )
+
+    def choose_student():
+        student_array = Student.create_by_csv('data/students.csv')
+        number = 1
+        for student in student_array:
+            print(number, student.first_name)
+            number += 1
+        choosen = input("Choose student: ")
+        choosen = int(choosen)
+        return student_array[choosen - 1]
 
     def call_up():
         print('\ncall_up')
 
+    def call_up(self, mentor, student):
+        #print('\ncall_up')
+        pass
+
     def cofee():
         print('\ncofee')
 
-    def private_mentoring():
-        pass
+    def private_mentoring(mentor):
+        os.system('clear')
+        if mentor.engagement < 20:
+            print(mentor.first_name, 'have too low engagement to conduct lessons! :()')
+            time.sleep(4)
+        else:
+            os.system('clear')
+            print('You have to choose student for private mentoring from list below:')
+            choosen_student = CodecoolClass.choose_student()
+            upgraded_knowledge = choosen_student.knowledge + 50
+            os.system('clear')
+            print(choosen_student.first_name,
+                  'knowledge has incrased from {} to {}!!! Good job!!!'
+                  .format(choosen_student.knowledge, upgraded_knowledge))
+            time.sleep(4)
+            choosen_student.knowledge += 50
 
     def checkpoing():
         print('\nheckpoing')
-
-    #@staticmethod
-    def choose_mentor():
-        mentors_object_list = Mentor.create_by_csv('data/mentors.csv')
-        counter = 1
-        for mentor in mentors_object_list:
-            print(str(counter) + ".", mentor.first_name, mentor.last_name, mentor.nickname)
-            counter += 1
-        choice = int(input("\nChoose mentor you want to play: "))
-        print("You have chosen ", mentors_object_list[choice-1])
-        return mentors_object_list[choice-1]
-

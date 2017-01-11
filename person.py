@@ -16,9 +16,9 @@ class Person:
         if energy is None:
             raise TypeError("Please write from 0-100")
 
-        self.first_name = first_name
-        self.last_name = last_name
-        self.year_of_birth = year_of_birth
-        self.gender = gender
-        self.coffee = coffee
-        self.energy = energy
+        self.first_name = str(first_name)
+        self.last_name = str(last_name)
+        self.year_of_birth = int(year_of_birth)
+        self.gender = str(gender)
+        self.coffee = str(coffee)
+        self.energy = int(energy)
