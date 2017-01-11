@@ -1,6 +1,8 @@
 from mentor import Mentor
 from student import Student
 import csv
+import os
+import time
 
 
 class CodecoolClass:
@@ -50,8 +52,7 @@ class CodecoolClass:
             number += 1
         choosen = input("Choose student: ")
         choosen = int(choosen)
-        choosen_student = student_array[choosen-1]
-        return choosen_student
+        return student_array[choosen - 1]
 
     def call_up():
         print('\ncall_up')
@@ -63,8 +64,22 @@ class CodecoolClass:
     def cofee():
         print('\ncofee')
 
-    def private_mentoring():
-        pass
+    def private_mentoring(mentor):
+        os.system('clear')
+        if mentor.engagement < 20:
+            print(mentor.first_name, 'have too low engagement to conduct lessons! :()')
+            time.sleep(4)
+        else:
+            os.system('clear')
+            print('You have to choose student for private mentoring from list below:')
+            choosen_student = CodecoolClass.choose_student()
+            upgraded_knowledge = choosen_student.knowledge + 50
+            os.system('clear')
+            print(choosen_student.first_name,
+                  'knowledge has incrased from {} to {}!!! Good job!!!'
+                  .format(choosen_student.knowledge, upgraded_knowledge))
+            time.sleep(4)
+            choosen_student.knowledge += 50
 
     def checkpoing():
         print('\nheckpoing')
