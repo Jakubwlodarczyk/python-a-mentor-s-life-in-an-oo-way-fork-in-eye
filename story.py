@@ -4,7 +4,7 @@ from student import Student
 import sys
 import os
 
-codecool_krk = CodecoolClass
+codecool_krk = CodecoolClass('Krakow', 2016, 'mentors', 'students')
 
 
 def choose_activity():
