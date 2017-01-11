@@ -45,6 +45,7 @@ class CodecoolClass:
             chosen_student.knowledge += 15
             print("Student's knowledge has been increased by 15!\n")
 
+
     def choose_student():
         student_array = Student.create_by_csv('data/students.csv')
         number = 1
@@ -59,6 +60,9 @@ class CodecoolClass:
     def call_up():
         print('\ncall_up')
 
+    def call_up(self, mentor, student):
+        #print('\ncall_up')
+
     def cofee():
         print('\ncofee')
 
@@ -67,6 +71,3 @@ class CodecoolClass:
 
     def checkpoing():
         print('\nheckpoing')
-
-
-
