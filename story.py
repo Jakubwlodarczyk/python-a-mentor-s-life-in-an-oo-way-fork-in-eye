@@ -46,18 +46,29 @@ def story_menu():
     for i, n in enumerate(options):
         print(i + 1, n)
 
+def choose_mentor():
+    mentors_object_list = Mentor.create_by_csv('data/mentors.csv')
+    counter = 1
+    for mentor in mentors_object_list:
+        print(str(counter) + ".", mentor.first_name, mentor.last_name, mentor.nickname)
+        counter += 1
+    choice = int(input("\nChoose mentor you want to play: "))
+    print("You have chosen ", mentors_object_list[choice - 1])
+    return mentors_object_list[choice - 1]
+
 
 def main():
     """Main function"""
     codecool_class = CodecoolClass.create_local_school()
     len_mentors = len(Mentor.create_by_csv('data/mentors.csv'))
-    print("Mentors are initialized from CSV.")
+    print("\nMentors are initialized from CSV.")
     print("Students are initialized from CSV.")
     print(
         "School @ {}, in year {} is created, with {} mentors and 53 students\n".format(codecool_class.location,
                                                                                        codecool_class.year,
                                                                                        len_mentors))
-    CodecoolClass.choose_mentor()
+    chosen_mentor = CodecoolClass.choose_mentor()
+    CodecoolClass.presentation()
     story_menu()
     print('')
     choose_activity()
