@@ -43,7 +43,7 @@ class CodecoolClass:
         print('\ncofee')
 
     def private_mentoring():
-        print('\nprivate_mentoring')
+        mentors_array = Mentor.create_by_csv('data/mentors.csv')
 
     def checkpoing():
         print('\nheckpoing')
