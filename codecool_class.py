@@ -1,7 +1,8 @@
 from mentor import Mentor
 from student import Student
-from story import choose_student
+# from story import choose_student
 import csv
+import os
 
 
 
@@ -39,7 +40,11 @@ class CodecoolClass:
 
     def presentation():
         #print('\npresentation')
-        chosen_student = story.choose_student()
+
+     
+
+        chosen_student = CodecoolClass.choose_student()
+
         if chosen_student.motivation < 60:
             chosen_student.energy -= 10
             print("Student's energy has been decreased by 10 because his motivation is low :(\n")
@@ -47,24 +52,52 @@ class CodecoolClass:
             chosen_student.knowledge += 15
             print("Student's knowledge has been increased by 15!\n")
 
-    def call_up():
+
+
+    def choose_student():
+        student_array = Student.create_by_csv('data/students.csv')
+        number = 1
+        for student in student_array:
+            print(number, student.first_name)
+            number += 1
+        choosen = input("Choose student: ")
+        choosen = int(choosen)
+        choosen_student = student_array[choosen-1]
+        return choosen_student
+
+    
+
+
+    
+        
+
+    def call_up(self, mentor, student):
+        #print('\ncall_up')
         print('\ncall_up')
 
-    def cofee():
-        print('\ncofee')
+    def coffee(self):
+
+        
         os.system('clear')
-        print('Students want to drink coffee, but\nthe work is not done yet. You can allow only one student to go kitchen room. Choose one from the list:')
-        for n,student in enumerate(self.students):
-            print('{} {}{}'.format(n+1, student.first_name, student.last_name))
-        student_name = story.chose_student
-        print(choose_name, choose_lastname)
-        print(type(choose_student))
+        print('Students want to drink coffee, but the work is not done yet. \nYou can allow only one student to go kitchen room. Choose one from the list:\n')
+        # for n,student in enumerate(self.students):
+        #     print('{} {}{}'.format(n+1, student.first_name, student.last_name))
+        chosen_student = CodecoolClass.choose_student()
+        # print(chosen_student.energy)
+        student = []
+        student.extend([chosen_student.first_name, chosen_student.last_name, chosen_student.coffee])
+        if student[2] == ' True':            
+            chosen_student.energy += 10
+            print("%s's energy has increased by 10.\n" % student[0])
+        else:
+            print("%s don't drink coffee" % student[0])
+        if chosen_student.energy >= 100:
+            print('Student is having heart attack and cannot attend classes')
+            
 
     def private_mentoring():
         pass
 
     def checkpoing():
         print('\nheckpoing')
-
-
 

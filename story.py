@@ -4,7 +4,10 @@ from student import Student
 import sys
 import os
 
-codecool_krk = CodecoolClass('Krakow', 2016, 'mentors', 'students')
+
+students = Student.create_by_csv('data/students.csv')
+mentors = Mentor.create_by_csv('data/mentors.csv')
+codecool_krk = CodecoolClass('Krakow', 2016, mentors, students)
 
 
 def choose_activity():
@@ -15,7 +18,7 @@ def choose_activity():
     elif option == '2':
         codecool_krk.call_up()
     elif option == '3':
-        codecool_krk.cofee()
+        codecool_krk.coffee()
     elif option == '4':
         choose_student()
         codecool_krk.private_mentoring()
@@ -67,7 +70,9 @@ def main():
         "School @ {}, in year {} is created, with {} mentors and 53 students\n".format(codecool_class.location,
                                                                                        codecool_class.year,
                                                                                        len_mentors))
-    chosen_mentor = CodecoolClass.choose_mentor()
+
+    chosen_mentor = choose_mentor()
+
     CodecoolClass.presentation()
     story_menu()
     print('')

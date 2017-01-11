@@ -38,5 +38,9 @@ class Student(Person):
 
         return list_of_students
 
+    def remove_student():
+        student_list = Student.create_by_csv('data/students.csv')
+        print(student_list[0].energy)
 
 list_of_student_objects = Student.create_by_csv('data/students.csv')
+Student.remove_student()

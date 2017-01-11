@@ -21,4 +21,4 @@ class Person:
         self.year_of_birth = year_of_birth
         self.gender = gender
         self.coffee = coffee
-        self.energy = energy
+        self.energy = int(energy)
