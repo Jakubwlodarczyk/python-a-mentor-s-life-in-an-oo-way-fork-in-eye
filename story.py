@@ -11,7 +11,7 @@ mentors = Mentor.create_by_csv('data/mentors.csv')
 codecool_krk = CodecoolClass('Krakow', 2016, mentors, students)
 s_table = Student
 
-def choose_activity():
+def choose_activity(mentor):
     user_input = input('Please enter a number: ')
     option = user_input
     if option == "1":
@@ -94,6 +94,6 @@ def main():
     while True:
         story_menu()
         print('')
-        choose_activity()
+        choose_activity(chosen_mentor)
 
 main()
