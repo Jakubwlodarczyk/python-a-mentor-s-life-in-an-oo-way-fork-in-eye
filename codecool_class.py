@@ -139,8 +139,38 @@ class CodecoolClass:
 
 
 
-    def checkpoing():
-        print('\nheckpoing')
+    def checkpoint():
+        print('\nCheckpoint time!')
+        os.system('clear')
+        mentor = CodecoolClass.choose_mentor()
+        student = CodecoolClass.choose_student()
+        time.sleep(2)
+        print('\nCheckpoint starts!\n', mentor, ' vs ', student, '!')
+        time.sleep(2)
+        irritation_level = int(mentor.irritation)
+        knowledge_level = int(student.knowledge)
+        motivation_level = int(student.motivation)
+        print("Mentor's irritation level is: ", irritation_level)
+        print("Student's knowledge level is: ", knowledge_level)
+        print("Student's motivation level is: ", motivation_level)
+        time.sleep(2)
+        if irritation_level >= 60:
+            print('\nYou have 3min to build a game <battleship>!\nWithout an internet connection.\n')
+            if knowledge < 80 and motivation < 80:
+                print('Your score is: RED CARD')
+            elif knowledge < 80 and motivation > 80:
+                print('Your score is: YELLOW CARD')
+            else:
+                print('Victory! Your score is: GREEN CARD!')
+        elif irritation_level >= 20:
+            print('\nIt is your lucky day!\nWhat is a string?')
+            if knowledge > 30 and motivation > 20:
+                print('Congrats! You are so smart and so motivated! Your score is: GREEN CARD!')
+            elif knowledge < 20 and motivation < 10:
+                print('Your score is: RED CARD!')
+            else:
+                print('Keep going! Your score is: YELLOW CARD.')
+
 
     def is_int(value):
         try:

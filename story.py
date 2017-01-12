@@ -24,7 +24,7 @@ def choose_activity():
     elif option == '4':
         codecool_krk.private_mentoring()
     elif option == '5':
-        codecool_krk.checkpoing()
+        codecool_krk.checkpoint()
     elif option == '6':
         s_table.student_table()
     elif option == '0':
