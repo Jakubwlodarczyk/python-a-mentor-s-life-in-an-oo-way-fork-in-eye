@@ -30,6 +30,19 @@ Creates a ```CodecoolClass``` object having some real-life data from the impleme
 #### Arguments
 None
 
+### ```call_up```
+
+Operates on student and mentor objects by adding to or subtracting from motivation, energy, knowledge and irritation values .
+
+#### Arguments
+* ```Mentor```
+  * data type: object
+  * description: holds information about mentor
+
+  * ```Student```
+    * data type: object
+    * description: holds information about student
+
 #### Return value
 
 ```CodecoolClass``` object

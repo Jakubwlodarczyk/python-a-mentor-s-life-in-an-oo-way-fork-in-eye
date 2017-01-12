@@ -46,30 +46,7 @@ class CodecoolClass:
             print("Student's knowledge has been increased by 15!\n")
 
 
-    def choose_student():
-        student_array = Student.create_by_csv('data/students.csv')
-        number = 1
-        for student in student_array:
-            print(number, student.first_name)
-            number += 1
-        choosen = input("Choose student: ")
-        choosen = int(choosen)
-        choosen_student = student_array[choosen-1]
-        return choosen_student
-
-    def choose_mentor():
-        mentors_object_list = Mentor.create_by_csv('data/mentors.csv')
-        counter = 1
-        for mentor in mentors_object_list:
-            print(str(counter) + ".", mentor.first_name, mentor.last_name, mentor.nickname)
-            counter += 1
-        choice = int(input("\nChoose mentor you want to play: "))
-        print("You have chosen ", mentors_object_list[choice - 1])
-        return mentors_object_list[choice - 1]
-
-    def call_up(mentor):
-        student = CodecoolClass.choose_student()
-        print(mentor.sweets)
+    def call_up(mentor, student):
 
         if mentor.sweets == 1:
             print('{} has some sweets to encourage {}'.format(mentor.first_name, student.first_name))
