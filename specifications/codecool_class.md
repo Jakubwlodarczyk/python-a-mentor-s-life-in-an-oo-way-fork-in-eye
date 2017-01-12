@@ -60,10 +60,10 @@ increasing or decreasing motivation, energy, knowledge and irritation values .
 * ```Mentor```
   * data type: object
   * description: holds information about mentor
-
 * ```Student```
   * data type: object
   * description: holds information about student
+
 
 #### Return value
  None
