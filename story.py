@@ -11,7 +11,7 @@ mentors = Mentor.create_by_csv('data/mentors.csv')
 codecool_krk = CodecoolClass('Krakow', 2016, mentors, students)
 s_table = Student
 
-def choose_activity():
+def choose_activity(mentor):
     user_input = input('Please enter a number: ')
     option = user_input
     if option == "1":
@@ -24,7 +24,7 @@ def choose_activity():
     elif option == '4':
         codecool_krk.private_mentoring()
     elif option == '5':
-        codecool_krk.checkpoint()
+        codecool_krk.checkpoint(mentor)
     elif option == '6':
         s_table.student_table()
     elif option == '0':

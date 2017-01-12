@@ -159,10 +159,9 @@ class CodecoolClass:
             choosen_student.knowledge += 50
 
 
-    def checkpoint():
+    def checkpoint(mentor):
         print('\nCheckpoint time!')
         os.system('clear')
-        mentor = CodecoolClass.choose_mentor()
         student = CodecoolClass.choose_student()
         time.sleep(2)
         print('\nCheckpoint starts!\n', mentor, ' vs ', student, '!')
