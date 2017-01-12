@@ -36,6 +36,12 @@ The constructor of the object.
 
 All of the arguments of the class itself.
 
+## Static methods
+
+### ```error_catch```
+
+Check for wrong value in data.
+
 #### Return value
 
 It raise an error, if any of the attributes is empty, and also if the provide gender is not valid

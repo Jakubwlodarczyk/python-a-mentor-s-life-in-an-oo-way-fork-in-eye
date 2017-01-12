@@ -19,23 +19,38 @@ class CodecoolClass:
         codecool_class = CodecoolClass("Krakow", 2016, mentors, students)
         return codecool_class
 
-    def find_student_by_full_name(self):
-        full_name_student_not_list = input("Type a student: ")
-        full_name_student = full_name_student_not_list.split()
+    @staticmethod
+    def find_student_by_full_name(students_object_list, full_name):
+        full_name_student = full_name.split()
+        checker = 0
         remember = "me"
-        for student in self.students:
-            if student.first_name == full_name_student[0] and student.last_name == full_name_student[1]:
+        for student in students_object_list:
+            if student.first_name == full_name_student[0] and student.last_name[1:] == full_name_student[1]:
+                checker = 1
                 remember = student
-        return remember
+        if checker == 1:
+            print("Student has been found in school.")
+            return remember
+        else:
+            print("Student has not been found.")
 
-    def find_mentor_by_full_name(self):
-        full_name_mentor_not_list = input("Type a mentor: ")
-        full_name_mentor = full_name_mentor_not_list.split()
+    @staticmethod
+    def find_mentor_by_full_name(mentors_object_list, full_name):
+        full_name_mentor = full_name.split()
+        checker = 0
         remember = "me"
-        for mentor in self.mentors:
-            if mentor.first_name == full_name_mentor[0] and mentor.last_name == full_name_mentor[1]:
+        if len(full_name_mentor) == 1:
+            print("Mentor has not been found.")
+            return None
+        for mentor in mentors_object_list:
+            if mentor.first_name == full_name_mentor[0] and mentor.last_name[1:] == full_name_mentor[1]:
+                checker = 1
                 remember = mentor
-        return remember
+        if checker == 1:
+            print("Mentor has been found in school.")
+            return remember
+        else:
+            print("Mentor has not been found.")
 
     def presentation(self, mentor):
         for student in Student.create_by_csv('data/students.csv'):
@@ -46,25 +61,6 @@ class CodecoolClass:
             end_student_knowledge = student.knowledge - remember
             print("Student {} knowledge has been increased by {}.".format(student.first_name, end_student_knowledge))
 
-    def choose_student():
-        student_array = Student.create_by_csv('data/students.csv')
-        number = 1
-        for student in student_array:
-            print(number, student.first_name)
-            number += 1
-        choosen = input("Choose student: ")
-        choosen = int(choosen)
-        return student_array[choosen - 1]
-
-    def choose_mentor():
-        mentors_object_list = Mentor.create_by_csv('data/mentors.csv')
-        counter = 1
-        for mentor in mentors_object_list:
-            print(str(counter) + ".", mentor.first_name, mentor.last_name, mentor.nickname)
-            counter += 1
-        choice = int(input("\nChoose mentor you want to play: "))
-        print("You have chosen ", mentors_object_list[choice - 1])
-        return mentors_object_list[choice - 1]
 
     def call_up(self, mentor, student):
         '''Function operates on student's motivation, knowledge, energy level
@@ -172,26 +168,8 @@ class CodecoolClass:
                 print("\nStudent's score is: RED CARD")
             else:
                 print("\nStudent's score is: YELLOW CARD")
-        time.sleep(2)
 
 
-    def choose_student():
-        student_array = Student.create_by_csv('data/students.csv')
-        number = 1
-        for student in student_array:
-            print(number, student.first_name)
-            number += 1
-        while True:
-            try:
-                choosen = int(input("Choose a student: "))
-                if choosen > 0 and choosen <= len(student_array):
-                    print("You have chosen ", student_array[choosen - 1])
-                    return student_array[choosen - 1]
-                else:
-                    print("Type correct number...\n")
-                    continue
-            except:
-                print("Type an integer...\n")
 
     def is_int(value):
         try:
