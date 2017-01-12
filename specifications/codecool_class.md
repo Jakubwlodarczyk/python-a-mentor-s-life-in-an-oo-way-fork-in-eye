@@ -92,7 +92,6 @@ Operates on student and mentor objects by increasing or decreasing knowledge.
 * ```Mentor```
   * data type: object
   * description: holds information about mentor
-
 * ```Student```
   * data type: object
   * description: holds information about student
@@ -111,7 +110,6 @@ Checks mentor's irritation level and student's knowledge and motivation level.
 * ```Mentor```
   * data type: object
   * description: holds information about mentor
-
 * ```Student```
   * data type: object
   * description: holds information about student
