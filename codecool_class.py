@@ -13,6 +13,7 @@ class CodecoolClass:
         self.mentors = mentors
         self.students = students
 
+    @staticmethod
     def create_local_school():
         mentors = Mentor.create_by_csv('data/mentors.csv')
         students = Student.create_by_csv('data/students.csv')
@@ -55,7 +56,7 @@ class CodecoolClass:
     def presentation(self, mentor):
         print("{}'s mentor engagement is on level {}, so:\n".format(mentor.first_name, mentor.engagement))
         time.sleep(2)
-        for student in Student.create_by_csv('data/students.csv'):
+        for student in self.students:
             remember = student.knowledge
             remember2 = student.knowledge
             student.knowledge = student.knowledge + \
