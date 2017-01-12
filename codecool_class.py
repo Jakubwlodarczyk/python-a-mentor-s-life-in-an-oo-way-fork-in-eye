@@ -57,11 +57,12 @@ class CodecoolClass:
         time.sleep(2)
         for student in Student.create_by_csv('data/students.csv'):
             remember = student.knowledge
+            remember2 = student.knowledge
             student.knowledge = student.knowledge + \
                 int((mentor.engagement / 100)) + int(int((mentor.engagement / 100)
                                                          * (student.motivation / 4))) + int(student.energy / 6)
             end_student_knowledge = student.knowledge - remember
-            print("Student {} knowledge has been increased by {}.".format(student.first_name, end_student_knowledge))
+            print("Student {} knowledge has been increased by {}. (was {}, now {})".format(student.first_name, end_student_knowledge, remember2, student.knowledge))
             time.sleep(1)
         print("\nNice!")
 
