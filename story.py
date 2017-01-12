@@ -25,7 +25,9 @@ def choose_activity(mentor, codecool_class):
         codecool_class.call_up(mentor, chosen_student)
     elif option == '3':
         os.system('clear')
-        codecool_class.coffee()
+        print('Students want to drink coffee, but the work is not done yet. \nYou can allow only one student to go kitchen room. Choose one from the list:\n')
+        chosen_student = choose_student(codecool_class)
+        codecool_class.coffee(chosen_student)
     elif option == '4':
         os.system('clear')
         print('Choose a student for private mentoring:\n')
@@ -124,6 +126,9 @@ def main():
         choose_activity(chosen_mentor, codecool_class)
         time.sleep(4)
         os.system('clear')
+
+
+
 
 
 main()

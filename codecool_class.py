@@ -105,20 +105,29 @@ class CodecoolClass:
                 print("{} decided to go by the board anyway. {}'s knowledge increases by 10 and is now {}".format(
                     student.first_name, student.first_name, student.knowledge))
 
-    def coffee(self):
+    def coffee(self, chosen_student):
 
         os.system('clear')
         print('Students want to drink coffee, but the work is not done yet. \nYou can allow only one student to go kitchen room. Choose one from the list:\n')
-        chosen_student = CodecoolClass.choose_student()
+        
         student = []
-        student.extend([chosen_student.first_name, chosen_student.last_name, chosen_student.coffee])
+        student.extend([chosen_student.first_name, chosen_student.last_name, chosen_student.coffee, chosen_student.energy, chosen_student.motivation])
+        time.sleep(1)
         if student[2] == ' True':
             chosen_student.energy += 10
-            print("%s's energy has increased by 10.\n" % student[0])
+            chosen_student.motivation += 10
+            print("{}'s mood increased: Energy: {}, motivation: {}".format(student[0],student[3], student[4]))           
         else:
             print("%s don't drink coffee" % student[0])
         if chosen_student.energy >= 100:
             print('Student is having heart attack and cannot attend classes')
+
+
+    # def his_or_her():
+    #     chosen_student = CodecoolClass.choose_student()
+    #     student = []
+    #     student.extend([chosen_student.first_name, chosen_student.gender])
+
 
     def private_mentoring(self, mentor, student):
         print('Checking if {} have enought engagement to conduct lessons...'.format(mentor.first_name))
