@@ -6,54 +6,54 @@ import os
 import time
 
 
-students = Student.create_by_csv('data/students.csv')
+# students = Student.create_by_csv('data/students.csv')
+#
+# mentors = Mentor.create_by_csv('data/mentors.csv')
+# codecool_class = CodecoolClass('Krakow', 2016, mentors, students)
+# s_table = Student
 
-mentors = Mentor.create_by_csv('data/mentors.csv')
-codecool_krk = CodecoolClass('Krakow', 2016, mentors, students)
-s_table = Student
 
-
-def choose_activity(mentor):
+def choose_activity(mentor, codecool_class):
     user_input = input('Please enter a number: ')
     option = user_input
     if option == "1":
         os.system('clear')
-        codecool_krk.presentation(mentor)
+        codecool_class.presentation(mentor)
     elif option == '2':
         os.system('clear')
-        chosen_student = choose_student()
-        codecool_krk.call_up(mentor, chosen_student)
+        chosen_student = choose_student(codecool_class)
+        codecool_class.call_up(mentor, chosen_student)
     elif option == '3':
         os.system('clear')
         print('Students want to drink coffee, but the work is not done yet. \nYou can allow only one student to go kitchen room. Choose one from the list:\n')
-        chosen_student = choose_student()
-        codecool_krk.coffee(chosen_student)
+        chosen_student = choose_student(codecool_class)
+        codecool_class.coffee(chosen_student)
     elif option == '4':
         os.system('clear')
         print('Choose a student for private mentoring:\n')
-        chosen_student = choose_student()
+        chosen_student = choose_student(codecool_class)
         print('\n')
-        codecool_krk.private_mentoring(mentor, chosen_student)
+        codecool_class.private_mentoring(mentor, chosen_student)
     elif option == '5':
-        student = choose_student()
-        codecool_krk.checkpoint(mentor, student)
+        student = choose_student(codecool_class)
+        codecool_class.checkpoint(mentor, student)
     elif option == '6':
         os.system('clear')
         s_table.student_table()
     elif option == '7':
         os.system('clear')
-        students_object_list = Student.create_by_csv('data/students.csv')
+        students_object_list = students
         # counter = 1 UNHASH IF YOU WANT TO PRINT STUDENT LIST
         # for student in students_object_list:
         #    print(str(counter) + ".", student.first_name, student.last_name)
         #    counter += 1
         full_name = input("Type a student: ")
-        codecool_krk.find_student_by_full_name(students_object_list, full_name)
+        codecool_class.find_student_by_full_name(students_object_list, full_name)
     elif option == '8':
         os.system('clear')
         mentors_object_list = Mentor.create_by_csv('data/mentors.csv')
         full_name = input("Type a mentor: ")
-        codecool_krk.find_mentor_by_full_name(mentors_object_list, full_name)
+        codecool_class.find_mentor_by_full_name(mentors_object_list, full_name)
     elif option == '0':
         os.system('clear')
         sys.exit()
@@ -74,19 +74,18 @@ def story_menu():
     print('0 Exit\n')
 
 
-def choose_mentor():
-    mentors_object_list = Mentor.create_by_csv('data/mentors.csv')
+def choose_mentor(codecool_class):
     counter = 1
-    for mentor in mentors_object_list:
+    for mentor in codecool_class.mentors:
         print(str(counter) + ".", mentor.first_name, mentor.last_name, mentor.nickname)
         counter += 1
     while True:
         try:
             choice = int(input("\nChoose mentor you want to play: "))
-            if choice > 0 and choice <= len(mentors_object_list):
+            if choice > 0 and choice <= len(codecool_class.mentors):
                 os.system('clear')
-                print("You have chosen ", mentors_object_list[choice - 1])
-                return mentors_object_list[choice - 1]
+                print("You have chosen ", codecool_class.mentors[choice - 1])
+                return codecool_class.mentors[choice - 1]
             else:
                 print("Type correct number...\n")
                 continue
@@ -94,18 +93,18 @@ def choose_mentor():
             print("Type an integer...\n")
 
 
-def choose_student():
-    student_array = Student.create_by_csv('data/students.csv')
+def choose_student(codecool_class):
+
     number = 1
-    for student in student_array:
+    for student in codecool_class.students:
         print(number, student.first_name)
         number += 1
     while True:
         try:
             choosen = int(input("\nType a number: "))
-            if choosen > 0 and choosen <= len(student_array):
-                print("You have chosen ", student_array[choosen - 1])
-                return student_array[choosen - 1]
+            if choosen > 0 and choosen <= len(codecool_class.students):
+                print("You have chosen ", codecool_class.students[choosen - 1])
+                return codecool_class.students[choosen - 1]
             else:
                 print("Type correct number...\n")
                 continue
@@ -121,15 +120,15 @@ def main():
         "School @ {}, in year {} is created, with {} mentors and 53 students\n".format(codecool_class.location,
                                                                                        codecool_class.year,
                                                                                        len_mentors))
-    chosen_mentor = choose_mentor()
+    chosen_mentor = choose_mentor(codecool_class)
     while True:
         story_menu()
-        choose_activity(chosen_mentor)
+        choose_activity(chosen_mentor, codecool_class)
         time.sleep(4)
         os.system('clear')
 
 
-   
+
 
 
 main()
