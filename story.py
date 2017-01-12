@@ -40,9 +40,17 @@ def choose_mentor():
     for mentor in mentors_object_list:
         print(str(counter) + ".", mentor.first_name, mentor.last_name, mentor.nickname)
         counter += 1
-    choice = int(input("\nChoose mentor you want to play: "))
-    print("You have chosen ", mentors_object_list[choice - 1])
-    return mentors_object_list[choice - 1]
+    while True:
+        try:
+            choice = int(input("\nChoose mentor you want to play: "))
+            if choice > 0 and choice <= len(mentors_object_list):
+                print("You have chosen ", mentors_object_list[choice - 1])
+                return mentors_object_list[choice - 1]
+            else:
+                print("Type correct number...\n")
+                continue
+        except:
+            print("Type an integer...\n")
 
 
 def main():
