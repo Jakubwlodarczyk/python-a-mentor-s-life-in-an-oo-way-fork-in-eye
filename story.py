@@ -28,6 +28,18 @@ def choose_activity(mentor):
         codecool_krk.checkpoint(mentor)
     elif option == '6':
         s_table.student_table()
+    elif option == '7':
+        students_object_list = Student.create_by_csv('data/students.csv')
+        #counter = 1 UNHASH IF YOU WANT TO PRINT STUDENT LIST
+        #for student in students_object_list:
+        #    print(str(counter) + ".", student.first_name, student.last_name)
+        #    counter += 1
+        full_name = input("Type a student: ")
+        codecool_krk.find_student_by_full_name(students_object_list, full_name)
+    elif option == '8':
+        mentors_object_list = Mentor.create_by_csv('data/mentors.csv')
+        full_name = input("Type a mentor: ")
+        codecool_krk.find_mentor_by_full_name(mentors_object_list, full_name)
     elif option == '0':
         sys.exit()
     else:
@@ -35,7 +47,9 @@ def choose_activity(mentor):
 
 
 def story_menu():
-    options = ['Presentation', 'Call up', 'Cofee', 'Private Mentoring', 'Checkpoint', 'Student table']
+
+    options = ['Presentation', 'Call up', 'Cofee', 'Private Mentoring', 'Checkpoint', 'print student table', 'find student by full name', 'find mentor by full name', '0 to exit']
+
     print('Event list:')
     for i, n in enumerate(options):
         print(i + 1, n)
