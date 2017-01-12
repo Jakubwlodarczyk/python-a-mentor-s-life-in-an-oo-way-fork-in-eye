@@ -119,31 +119,33 @@ class CodecoolClass:
         if chosen_student.energy >= 100:
             print('Student is having heart attack and cannot attend classes')
 
-    def private_mentoring(self):
-        os.system('clear')
-        mentor = CodecoolClass.choose_mentor()
-        if mentor.engagement < 20:
-            print(mentor.first_name, 'have too low engagement to conduct lessons! :()')
+    def private_mentoring(self, mentor, student):
+        print('Checking if {} have enought engagement to conduct lessons...'.format(mentor.first_name))
+        time.sleep(2)
+        if mentor.engagement < 35:
+            print(mentor.first_name, 'have too low engagement!! Today will be no private mentoring...')
             time.sleep(4)
         else:
-            os.system('clear')
-            print('You have to choose student for private mentoring from list below:')
-            choosen_student = CodecoolClass.choose_student()
-            upgraded_knowledge = choosen_student.knowledge + 50
-            os.system('clear')
-            print(choosen_student.first_name,
+            print('\nYes! Prepare for "face to face" mentoring!')
+            print('.')
+            time.sleep(1)
+            print('.')
+            time.sleep(1)
+            print('.')
+            time.sleep(1)
+            old_knowledge = student.knowledge
+            new_knowledge = int(old_knowledge) + 50
+            print(student.first_name,
                   'knowledge has incrased from {} to {}!!! Good job!!!'
-                  .format(choosen_student.knowledge, upgraded_knowledge))
-            time.sleep(4)
-            choosen_student.knowledge += 50
+                  .format(old_knowledge, new_knowledge))
+            time.sleep(3)
+            student.knowledge += 50
 
-
-    def checkpoint(self, mentor):
+    def checkpoint(self, mentor, student):
         print('\nCheckpoint time!')
         os.system('clear')
-        student = CodecoolClass.choose_student()
         time.sleep(2)
-        print('\nCheckpoint starts!\n', mentor.first_name, '<', mentor.nickname, '>', mentor.last_name, ' vs ', student, '!\n')
+        print('\nCheckpoint starts!\n', mentor.first_name, '<', mentor.nickname, '>', mentor.last_name, ' vs ', student.first_name, student.last_name)
         time.sleep(2)
         irritation_level = int(mentor.irritation)
         knowledge_level = int(student.knowledge)

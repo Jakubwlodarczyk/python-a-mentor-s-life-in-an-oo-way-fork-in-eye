@@ -23,6 +23,7 @@ None
 
 ## Class methods
 
+
 ### ```create_local_school```
 
 Creates a ```CodecoolClass``` object having some real-life data from the implementer students' real class.
@@ -36,32 +37,21 @@ None
 
 
 
-### ```is_int```
+### ```make_presentation```
 
-Data valuation.
-
-#### Arguments
-Value
-
-#### Return value
-Boolean
-
-
-### ```presentation```
-
-Operates on student and mentor objects by adding to or subtracting from motivation, energy, knowledge and engagement values .
+Operates on list of students objects and mentor object by increasing or decreasing motivation, energy, knowledge and engagement values .
 
 #### Arguments
 * ```Mentor```
  * data type: object
  * description: holds information about mentor
 
-
 #### Return value
 None
 
 
-### ```call_up```
+
+### ```call_up_to_the_board```
 
 Operates on student and mentor objects by
 increasing or decreasing motivation, energy, knowledge and irritation values .
@@ -70,55 +60,66 @@ increasing or decreasing motivation, energy, knowledge and irritation values .
 * ```Mentor```
   * data type: object
   * description: holds information about mentor
+* ```Student```
+  * data type: object
+  * description: holds information about student
 
-  * ```Student```
-    * data type: object
-    * description: holds information about student
 
 #### Return value
  None
 
 
- ### ```coffee```
 
- Operates on student object by increasing energy values .
+### ```drink_coffee```
 
- #### Arguments
- None
+Operates on student object by increasing energy values.
 
- #### Return value
+#### Arguments
+* ```Student```
+  * data type: object
+  * description: holds information about student
+
+#### Return value
   None
 
 
-### ```private_mentoring```
+
+### ```do_private_mentoring```
 
 Operates on student and mentor objects by increasing or decreasing knowledge.
 
 #### Arguments
 * ```Mentor```
-* data type: object
-* description: holds information about mentor
+  * data type: object
+  * description: holds information about mentor
+* ```Student```
+  * data type: object
+  * description: holds information about student
 
 #### Return value
 None
 
 
-### ```checkpoint```
+
+### ```do_checkpoint```
 
 Operates on student and mentor objects.
 Checks mentor's irritation level and student's knowledge and motivation level.
 
 #### Arguments
 * ```Mentor```
-* data type: object
-* description: holds information about mentor
-
+  * data type: object
+  * description: holds information about mentor
+* ```Student```
+  * data type: object
+  * description: holds information about student
 
 #### Return value
 None
 
 
 ## Instance methods
+
 
 
 ### ```__init__```
@@ -132,9 +133,11 @@ All of the arguments of the class itself.
 None
 
 
+
 ### ```find_student_by_full_name```
 
 Gives back a student with the same full name as the argument from ```students```
+
 #### Arguments
 * ```full_name```
   * data_type: string
@@ -144,7 +147,9 @@ Gives back a student with the same full name as the argument from ```students```
 ```Student``` object
 
 
+
 ### ```find_mentor_by_full_name```
+Gives back a mentor with the same full name as the argument from ```mentors```
 
 #### Arguments
 * ```full_name```
@@ -155,13 +160,3 @@ Gives back a student with the same full name as the argument from ```students```
 ```Mentor``` object
 
 
-### ```checkpoint```
-
-Gives back a student with the same full name as the argument from ```students```
-#### Arguments
-* ```mentor```
-  * data_type: object
-  * description: check knowledge choosen student
-
-#### Return value
-    None
