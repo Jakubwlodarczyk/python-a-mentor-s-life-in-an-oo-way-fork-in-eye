@@ -46,25 +46,6 @@ class CodecoolClass:
             end_student_knowledge = student.knowledge - remember
             print("Student {} knowledge has been increased by {}.".format(student.first_name, end_student_knowledge))
 
-    def choose_student():
-        student_array = Student.create_by_csv('data/students.csv')
-        number = 1
-        for student in student_array:
-            print(number, student.first_name)
-            number += 1
-        choosen = input("Choose student: ")
-        choosen = int(choosen)
-        return student_array[choosen - 1]
-
-    def choose_mentor():
-        mentors_object_list = Mentor.create_by_csv('data/mentors.csv')
-        counter = 1
-        for mentor in mentors_object_list:
-            print(str(counter) + ".", mentor.first_name, mentor.last_name, mentor.nickname)
-            counter += 1
-        choice = int(input("\nChoose mentor you want to play: "))
-        print("You have chosen ", mentors_object_list[choice - 1])
-        return mentors_object_list[choice - 1]
 
     def call_up(self, mentor, student):
         '''Function operates on student's motivation, knowledge, energy level
@@ -173,24 +154,6 @@ class CodecoolClass:
             else:
                 print('\nKeep going! Your score is: YELLOW CARD.')
 
-
-    def choose_student():
-        student_array = Student.create_by_csv('data/students.csv')
-        number = 1
-        for student in student_array:
-            print(number, student.first_name)
-            number += 1
-        while True:
-            try:
-                choosen = int(input("Choose a student: "))
-                if choosen > 0 and choosen <= len(student_array):
-                    print("You have chosen ", student_array[choosen - 1])
-                    return student_array[choosen - 1]
-                else:
-                    print("Type correct number...\n")
-                    continue
-            except:
-                print("Type an integer...\n")
 
     def is_int(value):
         try:
