@@ -177,7 +177,7 @@ class CodecoolClass:
         print('\nAre you ready? \n')
         if irritation_level >= 60:
             print('\nYou have 3min to build a game <battleship>!\nWithout an internet connection.\n')
-            time.sleep(2)
+            time.sleep(4)
             if knowledge_level < 80 and motivation_level < 80:
                 print('\nYour score is: RED CARD')
             elif knowledge_level < 80 and motivation_level > 80:
@@ -186,13 +186,14 @@ class CodecoolClass:
                 print('Victory! Your score is: GREEN CARD!')
         elif irritation_level <= 59:
             print('\nIt is your lucky day!\nWhat is a string?')
-            time.sleep(2)
+            time.sleep(4)
             if knowledge_level > 30 and motivation_level > 20:
                 print('\nCongrats! You are so smart and so motivated! Your score is: GREEN CARD!')
             elif knowledge_level < 20 and motivation_level < 10:
                 print('\nYour score is: RED CARD!')
             else:
                 print('\nKeep going! Your score is: YELLOW CARD.')
+        time.sleep(2)
 
 
     def choose_student():
