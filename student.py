@@ -51,10 +51,12 @@ class Student(Person):
                                   student.motivation, student.sweets])
         return students_list
 
+    
+    @staticmethod
     def student_table():
 
-        students_list = Student.students_list()
-
+        students_list = Student.converter()
+        # Student.converter()
         title_list = ['| First_name | Last_name    | Birth |  Gender  | Coffee   | Energy | Knowledge | Motivation| Sweets']
 
         print(''.join(title_list))
@@ -81,3 +83,4 @@ class Student(Person):
             for i in item:
                 if i == ' False':
                     item[item.index(' False')] = 'Dislike'
+        return students_list
