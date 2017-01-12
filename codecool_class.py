@@ -53,6 +53,8 @@ class CodecoolClass:
             print("Mentor has not been found.")
 
     def presentation(self, mentor):
+        print("{}'s mentor engagement is on level {}, so:\n".format(mentor.first_name, mentor.engagement))
+        time.sleep(2)
         for student in Student.create_by_csv('data/students.csv'):
             remember = student.knowledge
             student.knowledge = student.knowledge + \
@@ -60,6 +62,8 @@ class CodecoolClass:
                                                          * (student.motivation / 4))) + int(student.energy / 6)
             end_student_knowledge = student.knowledge - remember
             print("Student {} knowledge has been increased by {}.".format(student.first_name, end_student_knowledge))
+            time.sleep(1)
+        print("\nNice!")
 
 
     def call_up(self, mentor, student):
