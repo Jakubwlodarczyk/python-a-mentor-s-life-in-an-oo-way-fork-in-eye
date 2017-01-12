@@ -1,6 +1,6 @@
 from mentor import Mentor
 from student import Student
-# from story import choose_student
+#from story import choose_student
 import csv
 import os
 import time
@@ -159,12 +159,13 @@ class CodecoolClass:
             choosen_student.knowledge += 50
 
 
-    def checkpoint(mentor):
+    def checkpoint(self, mentor):
         print('\nCheckpoint time!')
         os.system('clear')
+        mentor = mentor
         student = CodecoolClass.choose_student()
         time.sleep(2)
-        print('\nCheckpoint starts!\n', mentor, ' vs ', student, '!')
+        print('\nCheckpoint starts!\n', mentor.first_name, ' vs ', student, '!')
         time.sleep(2)
         irritation_level = int(mentor.irritation)
         knowledge_level = int(student.knowledge)
@@ -173,19 +174,20 @@ class CodecoolClass:
         print("Student's knowledge level is: ", knowledge_level)
         print("Student's motivation level is: ", motivation_level)
         time.sleep(2)
+        print('dafuk')
         if irritation_level >= 60:
             print('\nYou have 3min to build a game <battleship>!\nWithout an internet connection.\n')
-            if knowledge < 80 and motivation < 80:
+            if knowledge_level < 80 and motivation_level < 80:
                 print('Your score is: RED CARD')
-            elif knowledge < 80 and motivation > 80:
+            elif knowledge_level < 80 and motivation_level > 80:
                 print('Your score is: YELLOW CARD')
             else:
                 print('Victory! Your score is: GREEN CARD!')
-        elif irritation_level >= 20:
+        elif irritation_level <= 59:
             print('\nIt is your lucky day!\nWhat is a string?')
-            if knowledge > 30 and motivation > 20:
+            if knowledge_level > 30 and motivation_level > 20:
                 print('Congrats! You are so smart and so motivated! Your score is: GREEN CARD!')
-            elif knowledge < 20 and motivation < 10:
+            elif knowledge_level < 20 and motivation_level < 10:
                 print('Your score is: RED CARD!')
             else:
                 print('Keep going! Your score is: YELLOW CARD.')

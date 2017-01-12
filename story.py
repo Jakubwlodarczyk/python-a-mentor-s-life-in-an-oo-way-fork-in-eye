@@ -91,9 +91,9 @@ def main():
     print('')
     choose_activity(chosen_mentor)
 
-    while True:
-        story_menu()
-        print('')
-        choose_activity()
+    # while True:
+    #     story_menu()
+    #     print('')
+    #     choose_activity(mentor)
 
 main()
