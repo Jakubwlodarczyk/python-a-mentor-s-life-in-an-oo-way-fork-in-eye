@@ -13,6 +13,7 @@ class CodecoolClass:
         self.mentors = mentors
         self.students = students
 
+    @staticmethod
     def create_local_school():
         mentors = Mentor.create_by_csv('data/mentors.csv')
         students = Student.create_by_csv('data/students.csv')
