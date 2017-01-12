@@ -137,8 +137,42 @@ class CodecoolClass:
             time.sleep(4)
             choosen_student.knowledge += 50
 
-    def checkpoing(self):
-        print('\nheckpoing')
+
+    def checkpoint(self, mentor):
+        print('\nCheckpoint time!')
+        os.system('clear')
+        mentor = mentor
+        student = CodecoolClass.choose_student()
+        time.sleep(2)
+        print('\nCheckpoint starts!\n', mentor.first_name, ' vs ', student, '!\n')
+        time.sleep(2)
+        irritation_level = int(mentor.irritation)
+        knowledge_level = int(student.knowledge)
+        motivation_level = int(student.motivation)
+        print("Mentor's irritation level is: ", irritation_level)
+        print("Student's knowledge level is: ", knowledge_level)
+        print("Student's motivation level is: ", motivation_level)
+        time.sleep(2)
+        print('\nAre you ready? \n')
+        if irritation_level >= 60:
+            print('\nYou have 3min to build a game <battleship>!\nWithout an internet connection.\n')
+            time.sleep(2)
+            if knowledge_level < 80 and motivation_level < 80:
+                print('\nYour score is: RED CARD')
+            elif knowledge_level < 80 and motivation_level > 80:
+                print('\nYour score is: YELLOW CARD')
+            else:
+                print('Victory! Your score is: GREEN CARD!')
+        elif irritation_level <= 59:
+            print('\nIt is your lucky day!\nWhat is a string?')
+            time.sleep(2)
+            if knowledge_level > 30 and motivation_level > 20:
+                print('\nCongrats! You are so smart and so motivated! Your score is: GREEN CARD!')
+            elif knowledge_level < 20 and motivation_level < 10:
+                print('\nYour score is: RED CARD!')
+            else:
+                print('\nKeep going! Your score is: YELLOW CARD.')
+
 
     def choose_student():
         student_array = Student.create_by_csv('data/students.csv')
