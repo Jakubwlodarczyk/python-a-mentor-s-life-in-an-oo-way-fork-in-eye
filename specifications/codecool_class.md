@@ -34,6 +34,89 @@ None
 
 ```CodecoolClass``` object
 
+
+
+  ### ```is_int```
+
+  Data valuation.
+
+  #### Arguments
+   Value
+
+#### Return value
+Boolean
+
+
+### ```presentation```
+
+Operates on student and mentor objects by adding to or subtracting from motivation, energy, knowledge and engagement values .
+
+#### Arguments
+* ```Mentor```
+ * data type: object
+ * description: holds information about mentor
+
+
+#### Return value
+None
+
+
+### ```call_up```
+
+Operates on student and mentor objects by
+increasing or decreasing motivation, energy, knowledge and irritation values .
+
+#### Arguments
+* ```Mentor```
+  * data type: object
+  * description: holds information about mentor
+
+  * ```Student```
+    * data type: object
+    * description: holds information about student
+
+#### Return value
+ None
+
+
+ ### ```coffee```
+
+ Operates on student object by increasing energy values .
+
+ #### Arguments
+ None
+
+ #### Return value
+  None
+
+
+### ```private_mentoring```
+
+Operates on student and mentor objects by increasing or decreasing knowledge.
+
+#### Arguments
+* ```Mentor```
+* data type: object
+* description: holds information about mentor
+
+#### Return value
+None
+
+
+### ```checkpoint```
+
+Operates on student and mentor objects.
+Checks mentor's irritation level and student's knowledge and motivation level.
+
+#### Arguments
+* ```Mentor```
+* data type: object
+* description: holds information about mentor
+
+
+#### Return value
+None
+
 ## Instance methods
 
 ### ```__init__```
