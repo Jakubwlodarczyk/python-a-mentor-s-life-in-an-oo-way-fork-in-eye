@@ -44,16 +44,6 @@ class CodecoolClass:
                 end_student_knowledge = student.knowledge - remember
                 print("Student {} knowledge has been increased by {}.".format(student.first_name, end_student_knowledge) )
 
-    def choose_student():
-        student_array = Student.create_by_csv('data/students.csv')
-        number = 1
-        for student in student_array:
-            print(number, student.first_name)
-            number += 1
-        choosen = input("Choose student: ")
-        choosen = int(choosen)
-        return student_array[choosen - 1]
-
     def call_up():
         print('\ncall_up')
 
@@ -81,5 +71,30 @@ class CodecoolClass:
             time.sleep(4)
             choosen_student.knowledge += 50
 
+    def choose_student():
+        student_array = Student.create_by_csv('data/students.csv')
+        number = 1
+        for student in student_array:
+            print(number, student.first_name)
+            number += 1
+        while True:
+            try:
+                choosen = int(input("Choose a student: "))
+                if choosen > 0 and choosen <= len(student_array):
+                    print("You have chosen ", student_array[choosen - 1])
+                    return student_array[choosen - 1]
+                else:
+                    print("Type correct number...\n")
+                    continue
+            except:
+                print("Type an integer...\n")
+
     def checkpoing():
         print('\nheckpoing')
+
+    def is_int(value):
+        try:
+            int(value)
+            return True
+        except:
+            return False
