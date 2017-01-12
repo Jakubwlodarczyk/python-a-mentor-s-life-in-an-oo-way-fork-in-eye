@@ -3,6 +3,7 @@ from mentor import Mentor
 from student import Student
 import sys
 import os
+import time
 
 
 students = Student.create_by_csv('data/students.csv')
@@ -16,11 +17,14 @@ def choose_activity(mentor):
     user_input = input('Please enter a number: ')
     option = user_input
     if option == "1":
+        os.system('clear')
         codecool_krk.presentation(mentor)
     elif option == '2':
+        os.system('clear')
         chosen_student = choose_student()
         codecool_krk.call_up(mentor, chosen_student)
     elif option == '3':
+        os.system('clear')
         codecool_krk.coffee()
     elif option == '4':
         os.system('clear')
@@ -32,8 +36,10 @@ def choose_activity(mentor):
         student = choose_student()
         codecool_krk.checkpoint(mentor, student)
     elif option == '6':
+        os.system('clear')
         s_table.student_table()
     elif option == '7':
+        os.system('clear')
         students_object_list = Student.create_by_csv('data/students.csv')
         # counter = 1 UNHASH IF YOU WANT TO PRINT STUDENT LIST
         # for student in students_object_list:
@@ -42,11 +48,15 @@ def choose_activity(mentor):
         full_name = input("Type a student: ")
         codecool_krk.find_student_by_full_name(students_object_list, full_name)
     elif option == '8':
+        os.system('clear')
         mentors_object_list = Mentor.create_by_csv('data/mentors.csv')
         full_name = input("Type a mentor: ")
         codecool_krk.find_mentor_by_full_name(mentors_object_list, full_name)
     elif option == '0':
+        os.system('clear')
         sys.exit()
+    elif option == "":
+        print("Type something.")
     else:
         raise KeyError("There is no such option.")
 
@@ -107,10 +117,12 @@ def main():
         "School @ {}, in year {} is created, with {} mentors and 53 students\n".format(codecool_class.location,
                                                                                        codecool_class.year,
                                                                                        len_mentors))
-
     chosen_mentor = choose_mentor()
-    story_menu()
-    choose_activity(chosen_mentor)
+    while True:
+        story_menu()
+        choose_activity(chosen_mentor)
+        time.sleep(4)
+        os.system('clear')
 
 
 main()

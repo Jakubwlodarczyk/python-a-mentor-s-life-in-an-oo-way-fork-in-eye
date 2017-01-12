@@ -12,17 +12,17 @@ Person()
   * data type: string
   * description: stores the mentor's secret nickname between the students
 
-* ```engagement```
+* ```engagement_level```
   * data type: int
   * description: stores points of the mentor's engagement
 
-* ```irritation```
+* ```irritation_level```
    * data type: int
    * description: stores the mentor's level of irritation
 
-* ```sweets```
+* ```has_sweets```
   * data type: Boolean
-  * description: stores information about candies if he likes it or not
+  * description: stores information about candies if he has it or not
 
 ## Class methods
 
