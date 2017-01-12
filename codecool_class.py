@@ -66,7 +66,6 @@ class CodecoolClass:
             time.sleep(1)
         print("\nNice!")
 
-
     def call_up(self, mentor, student):
         '''Function operates on student's motivation, knowledge, energy level
            and on mentor's irritation level changing their values'''
@@ -124,6 +123,7 @@ class CodecoolClass:
         print('Checking if {} have enought engagement to conduct lessons...'.format(mentor.first_name))
         time.sleep(2)
         if mentor.engagement < 35:
+            print('\n')
             print(mentor.first_name, 'have too low engagement!! Today will be no private mentoring...')
             time.sleep(4)
         else:
@@ -146,7 +146,8 @@ class CodecoolClass:
         print('\nCheckpoint time!')
         os.system('clear')
         time.sleep(2)
-        print('\nCheckpoint starts!\n', mentor.first_name, '<', mentor.nickname, '>', mentor.last_name, ' vs ', student.first_name, student.last_name)
+        print('\nCheckpoint starts!\n', mentor.first_name, '<', mentor.nickname,
+              '>', mentor.last_name, ' vs ', student.first_name, student.last_name)
         time.sleep(2)
         irritation_level = int(mentor.irritation)
         knowledge_level = int(student.knowledge)
@@ -175,8 +176,6 @@ class CodecoolClass:
                 print("\nStudent's score is: RED CARD")
             else:
                 print("\nStudent's score is: YELLOW CARD")
-
-
 
     def is_int(value):
         try:
