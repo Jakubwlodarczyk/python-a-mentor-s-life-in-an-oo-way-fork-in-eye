@@ -48,7 +48,7 @@ def choose_activity(mentor):
 
 def story_menu():
 
-    options = ['Presentation', 'Call up', 'Cofee', 'Private Mentoring', 'Checkpoint', 'find student by full name', 'find mentor by full name', '0 to exit']
+    options = ['Presentation', 'Call up', 'Cofee', 'Private Mentoring', 'Checkpoint', 'print student table', 'find student by full name', 'find mentor by full name', '0 to exit']
 
     print('Event list:')
     for i, n in enumerate(options):
