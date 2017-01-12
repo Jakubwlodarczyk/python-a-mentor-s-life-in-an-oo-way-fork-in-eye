@@ -48,7 +48,7 @@ def choose_activity(mentor):
         #    print(str(counter) + ".", student.first_name, student.last_name)
         #    counter += 1
         full_name = input("Type a student: ")
-        codecool_krk.find_student_by_full_name(students_object_list, full_name)
+        codecool_krk.find_student_by_full_name(full_name)
     elif option == '8':
         os.system('clear')
         mentors_object_list = Mentor.create_by_csv('data/mentors.csv')

@@ -19,12 +19,12 @@ class CodecoolClass:
         codecool_class = CodecoolClass("Krakow", 2016, mentors, students)
         return codecool_class
 
-    @staticmethod
-    def find_student_by_full_name(students_object_list, full_name):
+    #@staticmethod
+    def find_student_by_full_name(self, full_name):
         full_name_student = full_name.split()
         checker = 0
         remember = "me"
-        for student in students_object_list:
+        for student in self.students:
             if student.first_name == full_name_student[0] and student.last_name[1:] == full_name_student[1]:
                 checker = 1
                 remember = student
