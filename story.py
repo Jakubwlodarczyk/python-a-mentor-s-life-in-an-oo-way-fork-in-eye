@@ -3,6 +3,7 @@ from mentor import Mentor
 from student import Student
 import sys
 import os
+import time
 
 
 students = Student.create_by_csv('data/students.csv')
@@ -16,26 +17,55 @@ def choose_activity(mentor):
     user_input = input('Please enter a number: ')
     option = user_input
     if option == "1":
+        os.system('clear')
         codecool_krk.presentation(mentor)
     elif option == '2':
+        os.system('clear')
         chosen_student = choose_student()
         codecool_krk.call_up(mentor, chosen_student)
     elif option == '3':
+        os.system('clear')
         codecool_krk.coffee()
     elif option == '4':
-        codecool_krk.private_mentoring()
+        os.system('clear')
+        print('Choose a student for private mentoring:\n')
+        chosen_student = choose_student()
+        print('\n')
+        codecool_krk.private_mentoring(mentor, chosen_student)
     elif option == '5':
-        codecool_krk.checkpoint(mentor)
+        student = choose_student()
+        codecool_krk.checkpoint(mentor, student)
     elif option == '6':
+        os.system('clear')
         s_table.student_table()
+    elif option == '7':
+        os.system('clear')
+        students_object_list = Student.create_by_csv('data/students.csv')
+        # counter = 1 UNHASH IF YOU WANT TO PRINT STUDENT LIST
+        # for student in students_object_list:
+        #    print(str(counter) + ".", student.first_name, student.last_name)
+        #    counter += 1
+        full_name = input("Type a student: ")
+        codecool_krk.find_student_by_full_name(students_object_list, full_name)
+    elif option == '8':
+        os.system('clear')
+        mentors_object_list = Mentor.create_by_csv('data/mentors.csv')
+        full_name = input("Type a mentor: ")
+        codecool_krk.find_mentor_by_full_name(mentors_object_list, full_name)
     elif option == '0':
+        os.system('clear')
         sys.exit()
+    elif option == "":
+        print("Type something.")
     else:
         raise KeyError("There is no such option.")
 
 
 def story_menu():
-    options = ['Presentation', 'Call up', 'Cofee', 'Private Mentoring', 'Checkpoint', 'Student table']
+
+    options = ['Presentation', 'Call up', 'Cofee', 'Private Mentoring', 'Checkpoint',
+               'print student table', 'find student by full name', 'find mentor by full name', '0 to exit']
+
     print('Event list:')
     for i, n in enumerate(options):
         print(i + 1, n)
@@ -68,7 +98,7 @@ def choose_student():
         number += 1
     while True:
         try:
-            choosen = int(input("Choose a student: "))
+            choosen = int(input("\nType a number: "))
             if choosen > 0 and choosen <= len(student_array):
                 print("You have chosen ", student_array[choosen - 1])
                 return student_array[choosen - 1]
@@ -87,10 +117,12 @@ def main():
         "School @ {}, in year {} is created, with {} mentors and 53 students\n".format(codecool_class.location,
                                                                                        codecool_class.year,
                                                                                        len_mentors))
-
     chosen_mentor = choose_mentor()
-    story_menu()
-    choose_activity(chosen_mentor)
+    while True:
+        story_menu()
+        choose_activity(chosen_mentor)
+        time.sleep(4)
+        os.system('clear')
 
 
     while True:

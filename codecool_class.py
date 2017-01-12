@@ -19,25 +19,42 @@ class CodecoolClass:
         codecool_class = CodecoolClass("Krakow", 2016, mentors, students)
         return codecool_class
 
-    def find_student_by_full_name(self):
-        full_name_student_not_list = input("Type a student: ")
-        full_name_student = full_name_student_not_list.split()
+    @staticmethod
+    def find_student_by_full_name(students_object_list, full_name):
+        full_name_student = full_name.split()
+        checker = 0
         remember = "me"
-        for student in self.students:
-            if student.first_name == full_name_student[0] and student.last_name == full_name_student[1]:
+        for student in students_object_list:
+            if student.first_name == full_name_student[0] and student.last_name[1:] == full_name_student[1]:
+                checker = 1
                 remember = student
-        return remember
+        if checker == 1:
+            print("Student has been found in school.")
+            return remember
+        else:
+            print("Student has not been found.")
 
-    def find_mentor_by_full_name(self):
-        full_name_mentor_not_list = input("Type a mentor: ")
-        full_name_mentor = full_name_mentor_not_list.split()
+    @staticmethod
+    def find_mentor_by_full_name(mentors_object_list, full_name):
+        full_name_mentor = full_name.split()
+        checker = 0
         remember = "me"
-        for mentor in self.mentors:
-            if mentor.first_name == full_name_mentor[0] and mentor.last_name == full_name_mentor[1]:
+        if len(full_name_mentor) == 1:
+            print("Mentor has not been found.")
+            return None
+        for mentor in mentors_object_list:
+            if mentor.first_name == full_name_mentor[0] and mentor.last_name[1:] == full_name_mentor[1]:
+                checker = 1
                 remember = mentor
-        return remember
+        if checker == 1:
+            print("Mentor has been found in school.")
+            return remember
+        else:
+            print("Mentor has not been found.")
 
     def presentation(self, mentor):
+        print("{}'s mentor engagement is on level {}, so:\n".format(mentor.first_name, mentor.engagement))
+        time.sleep(2)
         for student in Student.create_by_csv('data/students.csv'):
             remember = student.knowledge
             student.knowledge = student.knowledge + \
@@ -45,26 +62,9 @@ class CodecoolClass:
                                                          * (student.motivation / 4))) + int(student.energy / 6)
             end_student_knowledge = student.knowledge - remember
             print("Student {} knowledge has been increased by {}.".format(student.first_name, end_student_knowledge))
+            time.sleep(1)
+        print("\nNice!")
 
-    def choose_student():
-        student_array = Student.create_by_csv('data/students.csv')
-        number = 1
-        for student in student_array:
-            print(number, student.first_name)
-            number += 1
-        choosen = input("Choose student: ")
-        choosen = int(choosen)
-        return student_array[choosen - 1]
-
-    def choose_mentor():
-        mentors_object_list = Mentor.create_by_csv('data/mentors.csv')
-        counter = 1
-        for mentor in mentors_object_list:
-            print(str(counter) + ".", mentor.first_name, mentor.last_name, mentor.nickname)
-            counter += 1
-        choice = int(input("\nChoose mentor you want to play: "))
-        print("You have chosen ", mentors_object_list[choice - 1])
-        return mentors_object_list[choice - 1]
 
     def call_up(self, mentor, student):
         '''Function operates on student's motivation, knowledge, energy level
@@ -123,83 +123,70 @@ class CodecoolClass:
         if chosen_student.energy >= 100:
             print('Student is having heart attack and cannot attend classes')
 
-    def his_or_her():
-        chosen_student = CodecoolClass.choose_student()
-        student = []
-        student.extend([chosen_student.first_name, chosen_student.gender])
 
-    def private_mentoring(self):
-        os.system('clear')
-        mentor = CodecoolClass.choose_mentor()
-        if mentor.engagement < 20:
-            print(mentor.first_name, 'have too low engagement to conduct lessons! :()')
+    # def his_or_her():
+    #     chosen_student = CodecoolClass.choose_student()
+    #     student = []
+    #     student.extend([chosen_student.first_name, chosen_student.gender])
+
+
+    def private_mentoring(self, mentor, student):
+        print('Checking if {} have enought engagement to conduct lessons...'.format(mentor.first_name))
+        time.sleep(2)
+        if mentor.engagement < 35:
+            print(mentor.first_name, 'have too low engagement!! Today will be no private mentoring...')
             time.sleep(4)
         else:
-            os.system('clear')
-            print('You have to choose student for private mentoring from list below:')
-            choosen_student = CodecoolClass.choose_student()
-            upgraded_knowledge = choosen_student.knowledge + 50
-            os.system('clear')
-            print(choosen_student.first_name,
+            print('\nYes! Prepare for "face to face" mentoring!')
+            print('.')
+            time.sleep(1)
+            print('.')
+            time.sleep(1)
+            print('.')
+            time.sleep(1)
+            old_knowledge = student.knowledge
+            new_knowledge = int(old_knowledge) + 50
+            print(student.first_name,
                   'knowledge has incrased from {} to {}!!! Good job!!!'
-                  .format(choosen_student.knowledge, upgraded_knowledge))
-            time.sleep(4)
-            choosen_student.knowledge += 50
+                  .format(old_knowledge, new_knowledge))
+            time.sleep(3)
+            student.knowledge += 50
 
-
-    def checkpoint(self, mentor):
+    def checkpoint(self, mentor, student):
         print('\nCheckpoint time!')
         os.system('clear')
-        mentor = mentor
-        student = CodecoolClass.choose_student()
         time.sleep(2)
-        print('\nCheckpoint starts!\n', mentor.first_name, ' vs ', student, '!\n')
+        print('\nCheckpoint starts!\n', mentor.first_name, '<', mentor.nickname, '>', mentor.last_name, ' vs ', student.first_name, student.last_name)
         time.sleep(2)
         irritation_level = int(mentor.irritation)
         knowledge_level = int(student.knowledge)
         motivation_level = int(student.motivation)
-        print("Mentor's irritation level is: ", irritation_level)
-        print("Student's knowledge level is: ", knowledge_level)
-        print("Student's motivation level is: ", motivation_level)
-        time.sleep(2)
-        print('\nAre you ready? \n')
+        print("\nMentor's irritation level is: ", irritation_level)
+        print("\nStudent's knowledge level is: ", knowledge_level)
+        print("\nStudent's motivation level is: ", motivation_level)
+        time.sleep(4)
         if irritation_level >= 60:
-            print('\nYou have 3min to build a game <battleship>!\nWithout an internet connection.\n')
-            time.sleep(2)
+            print('\nIrritation level is high! Beware!')
+            print('\nStudent have 3min to build a game <battleship>!\nWithout an internet connection.\n')
+            time.sleep(4)
             if knowledge_level < 80 and motivation_level < 80:
-                print('\nYour score is: RED CARD')
+                print("\nStudent's score is: RED CARD")
             elif knowledge_level < 80 and motivation_level > 80:
-                print('\nYour score is: YELLOW CARD')
+                print("\nStudent's score is: YELLOW CARD")
             else:
-                print('Victory! Your score is: GREEN CARD!')
+                print("\nVictory! Student's score is: GREEN CARD!")
         elif irritation_level <= 59:
-            print('\nIt is your lucky day!\nWhat is a string?')
-            time.sleep(2)
+            print("\nIt is lucky day for students! Irritation level is low.")
+            print('\nWhat is a string?')
+            time.sleep(4)
             if knowledge_level > 30 and motivation_level > 20:
-                print('\nCongrats! You are so smart and so motivated! Your score is: GREEN CARD!')
+                print("\nStudent is smart and so motivated! Student's score is: GREEN CARD!")
             elif knowledge_level < 20 and motivation_level < 10:
-                print('\nYour score is: RED CARD!')
+                print("\nStudent's score is: RED CARD")
             else:
-                print('\nKeep going! Your score is: YELLOW CARD.')
+                print("\nStudent's score is: YELLOW CARD")
 
 
-    def choose_student():
-        student_array = Student.create_by_csv('data/students.csv')
-        number = 1
-        for student in student_array:
-            print(number, student.first_name)
-            number += 1
-        while True:
-            try:
-                choosen = int(input("Choose a student: "))
-                if choosen > 0 and choosen <= len(student_array):
-                    print("You have chosen ", student_array[choosen - 1])
-                    return student_array[choosen - 1]
-                else:
-                    print("Type correct number...\n")
-                    continue
-            except:
-                print("Type an integer...\n")
 
     def is_int(value):
         try:
