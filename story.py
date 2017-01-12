@@ -66,11 +66,12 @@ def choose_activity(mentor):
 def story_menu():
 
     options = ['Presentation', 'Call up', 'Cofee', 'Private Mentoring', 'Checkpoint',
-               'print student table', 'find student by full name', 'find mentor by full name', '0 to exit']
+               'Print student table', 'Find student by full name', 'Find mentor by full name']
 
-    print('Event list:')
+    print('\nEvent list:')
     for i, n in enumerate(options):
         print(i + 1, n)
+    print('0 Exit\n')
 
 
 def choose_mentor():
@@ -83,6 +84,7 @@ def choose_mentor():
         try:
             choice = int(input("\nChoose mentor you want to play: "))
             if choice > 0 and choice <= len(mentors_object_list):
+                os.system('clear')
                 print("You have chosen ", mentors_object_list[choice - 1])
                 return mentors_object_list[choice - 1]
             else:
