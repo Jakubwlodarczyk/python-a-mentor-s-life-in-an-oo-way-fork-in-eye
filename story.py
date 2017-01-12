@@ -13,7 +13,8 @@ def choose_activity(mentor):
     if option == "1":
         codecool_krk.presentation(mentor)
     elif option == '2':
-        codecool_krk.call_up()
+        chosen_student = choose_student()
+        codecool_krk.call_up(mentor, chosen_student)
     elif option == '3':
         codecool_krk.cofee()
     elif option == '4':
@@ -52,6 +53,23 @@ def choose_mentor():
         except:
             print("Type an integer...\n")
 
+def choose_student():
+    student_array = Student.create_by_csv('data/students.csv')
+    number = 1
+    for student in student_array:
+        print(number, student.first_name)
+        number += 1
+    while True:
+        try:
+            choosen = int(input("Choose a student: "))
+            if choosen > 0 and choosen <= len(student_array):
+                print("You have chosen ", student_array[choosen - 1])
+                return student_array[choosen - 1]
+            else:
+                print("Type correct number...\n")
+                continue
+        except:
+            print("Type an integer...\n")
 
 def main():
     """Main function"""
@@ -64,7 +82,6 @@ def main():
                                                                                        codecool_class.year,
                                                                                        len_mentors))
     chosen_mentor = choose_mentor()
-
     story_menu()
     print('')
     choose_activity(chosen_mentor)
