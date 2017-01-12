@@ -36,12 +36,12 @@ None
 
 
 
-  ### ```is_int```
+### ```is_int```
 
-  Data valuation.
+Data valuation.
 
-  #### Arguments
-   Value
+#### Arguments
+Value
 
 #### Return value
 Boolean
@@ -117,7 +117,9 @@ Checks mentor's irritation level and student's knowledge and motivation level.
 #### Return value
 None
 
+
 ## Instance methods
+
 
 ### ```__init__```
 The constructor of the object.
@@ -129,6 +131,7 @@ All of the arguments of the class itself.
 #### Return value
 None
 
+
 ### ```find_student_by_full_name```
 
 Gives back a student with the same full name as the argument from ```students```
@@ -139,6 +142,7 @@ Gives back a student with the same full name as the argument from ```students```
 
 #### Return value
 ```Student``` object
+
 
 ### ```find_mentor_by_full_name```
 
