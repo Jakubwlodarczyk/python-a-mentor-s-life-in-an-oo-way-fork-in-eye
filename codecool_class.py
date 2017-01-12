@@ -40,6 +40,7 @@ class CodecoolClass:
         return remember
 
 
+
     # def presentation(self):
 
 
@@ -54,13 +55,14 @@ class CodecoolClass:
     #         print("Student's knowledge has been increased by 15!\n")
 
 
+
     def presentation(self):
-        for student in Student.create_by_csv('data/students.csv'):
-                remember = student.knowledge
-                student.knowledge = int(student.knowledge) + int(student.motivation) + int(student.energy/100)*int(student.motivation/4) + int(student.energy/6)
-                # + int((self.engagement/100)) + int(int((self.engagement/100)*(student.motivation/4))) + int(student.energy/6)
-                end_student_knowledge = student.knowledge - remember
-                print("Student {} knowledge has been increased by {}.".format(student.first_name, end_student_knowledge) )
+       for student in Student.create_by_csv('data/students.csv'):
+               remember = student.knowledge
+               student.knowledge = student.knowledge + int((self.engagement/100)) + int(int((self.engagement/100)*(student.motivation/4))) + int(student.energy/6)
+               end_student_knowledge = student.knowledge - remember
+               print("Student {} knowledge has been increased by {}.".format(student.first_name, end_student_knowledge) )
+
 
 
 
@@ -86,19 +88,38 @@ class CodecoolClass:
         return mentors_object_list[choice - 1]
 
 
+    def call_up(mentor, student):
+        '''Function operates on student's motivation, knowledge, energy level
+           and on mentor's irritation level changing their values'''
 
+        if mentor.sweets == 1:
+            print('{} has some sweets to encourage {}'.format(mentor.first_name, student.first_name))
+            if student.sweets == 1:
+                print('{} likes sweets and is indeed encouraged'.format(student.first_name))
+                student.motivation += 10
+                print("{}'s motivation increases by 10 thanks to sweets! Motivation is now {}".format(student.first_name, student.motivation))
+                student.knowledge += 10
+                print("Thanks to being by the board {}'s knowledge increases by 10 and is now {}".format(student.first_name, student.knowledge))
+                print("But thinking is soo exhausting. {}'s energy drops by 5 and is now {}.".format(student.first_name, student.energy))
 
-    def call_up():
-        print('\ncall_up')
+            else:
+                print("{} doesn't like sweets anyway. The motivation has not change then and is now {}".format(student.first_name, student.motivation))
+                student.knowledge+= 10
+                print("{} decided to go by the board anyway. {}'s knowledge increases by 10 and is now {}".format(student.first_name, student.first_name, student.knowledge))
 
+        else:
+            print("Oops, looks like {} doesn't have any sweets to encourage students...".format(mentor.first_name))
+            print("Let's see if that is a deal breaker.")
+            print("{}'s motivation is now {}.".format(student.first_name, student.motivation))
 
+            if student.motivation < 50:
+                print("Well, looks like {} doesn't feel like going to the board. Bummer.".format(student.first_name))
+                mentor.irritation+= 10
+                print("O-oh, student insubordination is annoying... {}'s irritation drops by 10 and is now {}".format(mentor.first_name, mentor.irritation))
+            else:
+                student.knowledge+= 10
+                print("{} decided to go by the board anyway. {}'s knowledge increases by 10 and is now {}".format(student.first_name, student.first_name, student.knowledge))
 
-
-
-    def call_up(self):
-
-
-        print('\ncall_up')
 
     def coffee(self):
 
@@ -138,7 +159,6 @@ class CodecoolClass:
             choosen_student.knowledge += 50
 
 
-
     def checkpoint():
         print('\nCheckpoint time!')
         os.system('clear')
@@ -170,6 +190,26 @@ class CodecoolClass:
                 print('Your score is: RED CARD!')
             else:
                 print('Keep going! Your score is: YELLOW CARD.')
+
+
+    def choose_student():
+        student_array = Student.create_by_csv('data/students.csv')
+        number = 1
+        for student in student_array:
+            print(number, student.first_name)
+            number += 1
+        while True:
+            try:
+                choosen = int(input("Choose a student: "))
+                if choosen > 0 and choosen <= len(student_array):
+                    print("You have chosen ", student_array[choosen - 1])
+                    return student_array[choosen - 1]
+                else:
+                    print("Type correct number...\n")
+                    continue
+            except:
+                print("Type an integer...\n")
+
 
 
     def is_int(value):
