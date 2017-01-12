@@ -66,3 +66,15 @@ Gives back a student with the same full name as the argument from ```students```
 
 #### Return value
 ```Mentor``` object
+
+
+### ```checkpoint```
+
+Gives back a student with the same full name as the argument from ```students```
+#### Arguments
+* ```mentor```
+  * data_type: object
+  * description: check knowledge choosen student
+
+#### Return value
+    None
