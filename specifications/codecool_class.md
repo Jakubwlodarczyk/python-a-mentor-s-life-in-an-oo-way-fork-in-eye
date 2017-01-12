@@ -41,7 +41,9 @@ None
 Data valuation.
 
 #### Arguments
-Value
+* ```Value```
+  * data type: any
+  * description: holds data to evaluate.
 
 #### Return value
 Boolean
@@ -71,9 +73,9 @@ increasing or decreasing motivation, energy, knowledge and irritation values .
   * data type: object
   * description: holds information about mentor
 
-  * ```Student```
-    * data type: object
-    * description: holds information about student
+* ```Student```
+  * data type: object
+  * description: holds information about student
 
 #### Return value
  None
@@ -81,7 +83,7 @@ increasing or decreasing motivation, energy, knowledge and irritation values .
 
  ### ```coffee```
 
- Operates on student object by increasing energy values .
+Operates on student object by increasing energy values .
 
  #### Arguments
  None
@@ -96,8 +98,8 @@ Operates on student and mentor objects by increasing or decreasing knowledge.
 
 #### Arguments
 * ```Mentor```
-* data type: object
-* description: holds information about mentor
+  * data type: object
+  * description: holds information about mentor
 
 #### Return value
 None
@@ -110,8 +112,8 @@ Checks mentor's irritation level and student's knowledge and motivation level.
 
 #### Arguments
 * ```Mentor```
-* data type: object
-* description: holds information about mentor
+  * data type: object
+  * description: holds information about mentor
 
 
 #### Return value
