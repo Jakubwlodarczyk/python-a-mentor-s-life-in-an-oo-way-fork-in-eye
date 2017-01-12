@@ -23,6 +23,7 @@ None
 
 ## Class methods
 
+
 ### ```create_local_school```
 
 Creates a ```CodecoolClass``` object having some real-life data from the implementer students' real class.
@@ -34,7 +35,92 @@ None
 
 ```CodecoolClass``` object
 
+
+
+### ```make_presentation```
+
+Operates on list of students objects and mentor object by increasing or decreasing motivation, energy, knowledge and engagement values .
+
+#### Arguments
+* ```Mentor```
+ * data type: object
+ * description: holds information about mentor
+
+#### Return value
+None
+
+
+
+### ```call_up_to_the_board```
+
+Operates on student and mentor objects by
+increasing or decreasing motivation, energy, knowledge and irritation values .
+
+#### Arguments
+* ```Mentor```
+  * data type: object
+  * description: holds information about mentor
+* ```Student```
+  * data type: object
+  * description: holds information about student
+
+
+#### Return value
+ None
+
+
+
+### ```drink_coffee```
+
+Operates on student object by increasing energy values.
+
+#### Arguments
+* ```Student```
+  * data type: object
+  * description: holds information about student
+
+#### Return value
+  None
+
+
+
+### ```do_private_mentoring```
+
+Operates on student and mentor objects by increasing or decreasing knowledge.
+
+#### Arguments
+* ```Mentor```
+  * data type: object
+  * description: holds information about mentor
+* ```Student```
+  * data type: object
+  * description: holds information about student
+
+#### Return value
+None
+
+
+
+### ```do_checkpoint```
+
+Operates on student and mentor objects.
+Checks mentor's irritation level and student's knowledge and motivation level.
+
+#### Arguments
+* ```Mentor```
+  * data type: object
+  * description: holds information about mentor
+* ```Student```
+  * data type: object
+  * description: holds information about student
+
+#### Return value
+None
+
+
 ## Instance methods
+
+
 
 ### ```__init__```
 The constructor of the object.
@@ -46,9 +132,12 @@ All of the arguments of the class itself.
 #### Return value
 None
 
+
+
 ### ```find_student_by_full_name```
 
 Gives back a student with the same full name as the argument from ```students```
+
 #### Arguments
 * ```full_name```
   * data_type: string
@@ -57,7 +146,10 @@ Gives back a student with the same full name as the argument from ```students```
 #### Return value
 ```Student``` object
 
+
+
 ### ```find_mentor_by_full_name```
+Gives back a mentor with the same full name as the argument from ```mentors```
 
 #### Arguments
 * ```full_name```
@@ -68,13 +160,3 @@ Gives back a student with the same full name as the argument from ```students```
 ```Mentor``` object
 
 
-### ```checkpoint```
-
-Gives back a student with the same full name as the argument from ```students```
-#### Arguments
-* ```mentor```
-  * data_type: object
-  * description: check knowledge choosen student
-
-#### Return value
-    None
