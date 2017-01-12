@@ -40,13 +40,29 @@ class CodecoolClass:
         return remember
 
 
-   
+
+    # def presentation(self):
+
+
+
+    #     chosen_student = CodecoolClass.choose_student()
+
+    #     if chosen_student.motivation < 60:
+    #         chosen_student.energy -= 10
+    #         print("Student's energy has been decreased by 10 because his motivation is low :(\n")
+    #     else:
+    #         chosen_student.knowledge += 15
+    #         print("Student's knowledge has been increased by 15!\n")
+
+
+
     def presentation(self):
        for student in Student.create_by_csv('data/students.csv'):
                remember = student.knowledge
                student.knowledge = student.knowledge + int((self.engagement/100)) + int(int((self.engagement/100)*(student.motivation/4))) + int(student.energy/6)
                end_student_knowledge = student.knowledge - remember
                print("Student {} knowledge has been increased by {}.".format(student.first_name, end_student_knowledge) )
+
 
 
 
@@ -71,7 +87,7 @@ class CodecoolClass:
         print("You have chosen ", mentors_object_list[choice - 1])
         return mentors_object_list[choice - 1]
 
-    
+
 
 
     def call_up():
@@ -82,8 +98,20 @@ class CodecoolClass:
         
 
 
+    def call_up():
+        print('\ncall_up')
+
+
+
+
+
+   
+
+
+
+
     def coffee(self):
-        
+
         os.system('clear')
         print('Students want to drink coffee, but the work is not done yet. \nYou can allow only one student to go kitchen room. Choose one from the list:\n')
         # for n,student in enumerate(self.students):
@@ -92,14 +120,14 @@ class CodecoolClass:
         # print(chosen_student.energy)
         student = []
         student.extend([chosen_student.first_name, chosen_student.last_name, chosen_student.coffee])
-        if student[2] == ' True':            
+        if student[2] == ' True':
             chosen_student.energy += 10
             print("%s's energy has increased by 10.\n" % student[0])
         else:
             print("%s don't drink coffee" % student[0])
         if chosen_student.energy >= 100:
             print('Student is having heart attack and cannot attend classes')
-            
+
 
     def private_mentoring(self):
         os.system('clear')
@@ -118,6 +146,7 @@ class CodecoolClass:
                   .format(choosen_student.knowledge, upgraded_knowledge))
             time.sleep(4)
             choosen_student.knowledge += 50
+
 
 
     def checkpoing(self):
@@ -141,6 +170,7 @@ class CodecoolClass:
                     continue
             except:
                 print("Type an integer...\n")
+
 
   
     def is_int(value):
