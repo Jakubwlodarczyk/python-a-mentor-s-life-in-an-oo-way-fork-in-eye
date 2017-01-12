@@ -86,19 +86,38 @@ class CodecoolClass:
         return mentors_object_list[choice - 1]
 
 
+    def call_up(mentor, student):
+        '''Function operates on student's motivation, knowledge, energy level
+           and on mentor's irritation level changing their values'''
+           
+        if mentor.sweets == 1:
+            print('{} has some sweets to encourage {}'.format(mentor.first_name, student.first_name))
+            if student.sweets == 1:
+                print('{} likes sweets and is indeed encouraged'.format(student.first_name))
+                student.motivation += 10
+                print("{}'s motivation increases by 10 thanks to sweets! Motivation is now {}".format(student.first_name, student.motivation))
+                student.knowledge += 10
+                print("Thanks to being by the board {}'s knowledge increases by 10 and is now {}".format(student.first_name, student.knowledge))
+                print("But thinking is soo exhausting. {}'s energy drops by 5 and is now {}.".format(student.first_name, student.energy))
 
+            else:
+                print("{} doesn't like sweets anyway. The motivation has not change then and is now {}".format(student.first_name, student.motivation))
+                student.knowledge+= 10
+                print("{} decided to go by the board anyway. {}'s knowledge increases by 10 and is now {}".format(student.first_name, student.first_name, student.knowledge))
 
-    def call_up():
-        print('\ncall_up')
+        else:
+            print("Oops, looks like {} doesn't have any sweets to encourage students...".format(mentor.first_name))
+            print("Let's see if that is a deal breaker.")
+            print("{}'s motivation is now {}.".format(student.first_name, student.motivation))
 
+            if student.motivation < 50:
+                print("Well, looks like {} doesn't feel like going to the board. Bummer.".format(student.first_name))
+                mentor.irritation+= 10
+                print("O-oh, student insubordination is annoying... {}'s irritation drops by 10 and is now {}".format(mentor.first_name, mentor.irritation))
+            else:
+                student.knowledge+= 10
+                print("{} decided to go by the board anyway. {}'s knowledge increases by 10 and is now {}".format(student.first_name, student.first_name, student.knowledge))
 
-
-
-
-    def call_up(self):
-
-
-        print('\ncall_up')
 
     def coffee(self):
 
