@@ -141,37 +141,37 @@ class CodecoolClass:
     def checkpoint(self, mentor):
         print('\nCheckpoint time!')
         os.system('clear')
-        mentor = mentor
         student = CodecoolClass.choose_student()
         time.sleep(2)
-        print('\nCheckpoint starts!\n', mentor.first_name, ' vs ', student, '!\n')
+        print('\nCheckpoint starts!\n', mentor.first_name, '<', mentor.nickname, '>', mentor.last_name, ' vs ', student, '!\n')
         time.sleep(2)
         irritation_level = int(mentor.irritation)
         knowledge_level = int(student.knowledge)
         motivation_level = int(student.motivation)
-        print("Mentor's irritation level is: ", irritation_level)
-        print("Student's knowledge level is: ", knowledge_level)
-        print("Student's motivation level is: ", motivation_level)
-        time.sleep(2)
-        print('\nAre you ready? \n')
+        print("\nMentor's irritation level is: ", irritation_level)
+        print("\nStudent's knowledge level is: ", knowledge_level)
+        print("\nStudent's motivation level is: ", motivation_level)
+        time.sleep(4)
         if irritation_level >= 60:
-            print('\nYou have 3min to build a game <battleship>!\nWithout an internet connection.\n')
+            print('\nIrritation level is high! Beware!')
+            print('\nStudent have 3min to build a game <battleship>!\nWithout an internet connection.\n')
             time.sleep(4)
             if knowledge_level < 80 and motivation_level < 80:
-                print('\nYour score is: RED CARD')
+                print("\nStudent's score is: RED CARD")
             elif knowledge_level < 80 and motivation_level > 80:
-                print('\nYour score is: YELLOW CARD')
+                print("\nStudent's score is: YELLOW CARD")
             else:
-                print('Victory! Your score is: GREEN CARD!')
+                print("\nVictory! Student's score is: GREEN CARD!")
         elif irritation_level <= 59:
-            print('\nIt is your lucky day!\nWhat is a string?')
+            print("\nIt is lucky day for students! Irritation level is low.")
+            print('\nWhat is a string?')
             time.sleep(4)
             if knowledge_level > 30 and motivation_level > 20:
-                print('\nCongrats! You are so smart and so motivated! Your score is: GREEN CARD!')
+                print("\nStudent is smart and so motivated! Student's score is: GREEN CARD!")
             elif knowledge_level < 20 and motivation_level < 10:
-                print('\nYour score is: RED CARD!')
+                print("\nStudent's score is: RED CARD")
             else:
-                print('\nKeep going! Your score is: YELLOW CARD.')
+                print("\nStudent's score is: YELLOW CARD")
         time.sleep(2)
 
 
