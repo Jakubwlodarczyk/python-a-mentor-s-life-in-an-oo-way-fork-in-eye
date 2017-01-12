@@ -21,6 +21,7 @@ None
 
 
 ### ```choose_activity```
+Choose activity - function to do by choosen mentor (drink coffee, make checkpoint, call up student, make presentation, make private mentoring)
 
 #### Arguments
 * ```Mentor```
@@ -33,6 +34,7 @@ None
 
 
 ### ```story_menu```
+Display menu of activities.
 
 #### Arguments
 None
@@ -43,6 +45,7 @@ None
 
 
 ### ```choose_mentor```
+Gives back a mentor object choosen from list of students.
 
 #### Arguments
 None
@@ -53,6 +56,7 @@ None
 
 
 ### ```choose_student```
+Gives back a student object choosen from list of students.
 
 #### Arguments
 None
