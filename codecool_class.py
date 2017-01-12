@@ -40,6 +40,7 @@ class CodecoolClass:
         return remember
 
 
+
     # def presentation(self):
 
 
@@ -54,13 +55,14 @@ class CodecoolClass:
     #         print("Student's knowledge has been increased by 15!\n")
 
 
+
     def presentation(self):
-        for student in Student.create_by_csv('data/students.csv'):
-                remember = student.knowledge
-                student.knowledge = int(student.knowledge) + int(student.motivation) + int(student.energy/100)*int(student.motivation/4) + int(student.energy/6)
-                # + int((self.engagement/100)) + int(int((self.engagement/100)*(student.motivation/4))) + int(student.energy/6)
-                end_student_knowledge = student.knowledge - remember
-                print("Student {} knowledge has been increased by {}.".format(student.first_name, end_student_knowledge) )
+       for student in Student.create_by_csv('data/students.csv'):
+               remember = student.knowledge
+               student.knowledge = student.knowledge + int((self.engagement/100)) + int(int((self.engagement/100)*(student.motivation/4))) + int(student.energy/6)
+               end_student_knowledge = student.knowledge - remember
+               print("Student {} knowledge has been increased by {}.".format(student.first_name, end_student_knowledge) )
+
 
 
 
@@ -89,7 +91,7 @@ class CodecoolClass:
     def call_up(mentor, student):
         '''Function operates on student's motivation, knowledge, energy level
            and on mentor's irritation level changing their values'''
-           
+
         if mentor.sweets == 1:
             print('{} has some sweets to encourage {}'.format(mentor.first_name, student.first_name))
             if student.sweets == 1:
@@ -158,8 +160,29 @@ class CodecoolClass:
 
 
 
-    def checkpoing():
+    def checkpoing(self):
         print('\nheckpoing')
+
+
+    def choose_student():
+        student_array = Student.create_by_csv('data/students.csv')
+        number = 1
+        for student in student_array:
+            print(number, student.first_name)
+            number += 1
+        while True:
+            try:
+                choosen = int(input("Choose a student: "))
+                if choosen > 0 and choosen <= len(student_array):
+                    print("You have chosen ", student_array[choosen - 1])
+                    return student_array[choosen - 1]
+                else:
+                    print("Type correct number...\n")
+                    continue
+            except:
+                print("Type an integer...\n")
+
+
 
     def is_int(value):
         try:
