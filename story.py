@@ -4,23 +4,29 @@ from student import Student
 import sys
 import os
 
-codecool_krk = CodecoolClass
 
+students = Student.create_by_csv('data/students.csv')
 
-def choose_activity(mentor):
+mentors = Mentor.create_by_csv('data/mentors.csv')
+codecool_krk = CodecoolClass('Krakow', 2016, mentors, students)
+s_table = Student
+
+def choose_activity():
     user_input = input('Please enter a number: ')
     option = user_input
     if option == "1":
-        codecool_krk.presentation(mentor)
+        codecool_krk.presentation()
     elif option == '2':
         chosen_student = choose_student()
         codecool_krk.call_up(mentor, chosen_student)
     elif option == '3':
-        codecool_krk.cofee()
+        codecool_krk.coffee()
     elif option == '4':
-        codecool_krk.private_mentoring(mentor)
+        codecool_krk.private_mentoring()
     elif option == '5':
         codecool_krk.checkpoing()
+    elif option == '6':
+        s_table.student_table()
     elif option == '0':
         sys.exit()
     else:
@@ -29,7 +35,7 @@ def choose_activity(mentor):
 
 def story_menu():
 
-    options = ['Presentation', 'Call up', 'Cofee', 'Private Mentoring', 'Checkpoint']
+    options = ['Presentation', 'Call up', 'Cofee', 'Private Mentoring', 'Checkpoint', 'Student table']
     print('Event list:')
     for i, n in enumerate(options):
         print(i + 1, n)
@@ -75,15 +81,19 @@ def main():
     """Main function"""
     codecool_class = CodecoolClass.create_local_school()
     len_mentors = len(Mentor.create_by_csv('data/mentors.csv'))
-    print("\nMentors are initialized from CSV.")
-    print("Students are initialized from CSV.")
     print(
         "School @ {}, in year {} is created, with {} mentors and 53 students\n".format(codecool_class.location,
                                                                                        codecool_class.year,
                                                                                        len_mentors))
+
     chosen_mentor = choose_mentor()
     story_menu()
     print('')
     choose_activity(chosen_mentor)
+
+    while True:
+        story_menu()
+        print('')
+        choose_activity()
 
 main()
