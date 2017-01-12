@@ -11,7 +11,7 @@ class Mentor(Person):
 
         self.irritation = int(irritation)
 
-        self.sweets = sweets
+        self.sweets = int(sweets)
 
     def __str__(self):
         return "{} {} {} ".format(self.first_name,  self.last_name, self.nickname)

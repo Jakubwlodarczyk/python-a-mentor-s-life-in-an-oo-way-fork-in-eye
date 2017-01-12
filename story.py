@@ -11,11 +11,12 @@ mentors = Mentor.create_by_csv('data/mentors.csv')
 codecool_krk = CodecoolClass('Krakow', 2016, mentors, students)
 s_table = Student
 
-def choose_activity():
+
+def choose_activity(mentor):
     user_input = input('Please enter a number: ')
     option = user_input
     if option == "1":
-        codecool_krk.presentation()
+        codecool_krk.presentation(mentor)
     elif option == '2':
         chosen_student = choose_student()
         codecool_krk.call_up(mentor, chosen_student)
@@ -34,7 +35,6 @@ def choose_activity():
 
 
 def story_menu():
-
     options = ['Presentation', 'Call up', 'Cofee', 'Private Mentoring', 'Checkpoint', 'Student table']
     print('Event list:')
     for i, n in enumerate(options):
@@ -59,6 +59,7 @@ def choose_mentor():
         except:
             print("Type an integer...\n")
 
+
 def choose_student():
     student_array = Student.create_by_csv('data/students.csv')
     number = 1
@@ -77,6 +78,7 @@ def choose_student():
         except:
             print("Type an integer...\n")
 
+
 def main():
     """Main function"""
     codecool_class = CodecoolClass.create_local_school()
@@ -88,12 +90,7 @@ def main():
 
     chosen_mentor = choose_mentor()
     story_menu()
-    print('')
     choose_activity(chosen_mentor)
 
-    while True:
-        story_menu()
-        print('')
-        choose_activity()
 
 main()
