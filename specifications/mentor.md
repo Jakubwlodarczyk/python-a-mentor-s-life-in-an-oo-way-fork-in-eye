@@ -11,22 +11,25 @@ Person()
 * ```nickname```
   * data type: string
   * description: stores the mentor's secret nickname between the students
-* ```involvment```
-  * data type: integer
-  * description: stores points of the mentor's involvment
-* ```iritation```
-   * data type: integrer
-   * description: stores the mentor's level of iritation
+
+* ```engagement```
+  * data type: int
+  * description: stores points of the mentor's engagement
+
+* ```irritation```
+   * data type: int
+   * description: stores the mentor's level of irritation
+
 * ```sweets```
   * data type: Boolean
-  * description: stores information about candies
+  * description: stores information about candies if he likes it or not
 
 ## Class methods
 
 
 ### ```create_by_csv```
 
-Gets a csv file path as an argument (the csv contains all the data needed to instantiate a mentor object) and gives back a list of mentors.
+Gets a csv file path as an argument (the csv contains all the data needed to instantiate a mentor object) and gives back an object list of mentors.
 raise an error, if empty
 
 
@@ -35,7 +38,7 @@ arguments of Person() and the class itself
 
 #### Return value
 
-list of mentors
+object list of mentors
 
 
 ## Instance methods
