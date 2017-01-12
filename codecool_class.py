@@ -40,29 +40,15 @@ class CodecoolClass:
         return remember
 
 
-    # def presentation(self):       
-
-     
-
-    #     chosen_student = CodecoolClass.choose_student()
-
-    #     if chosen_student.motivation < 60:
-    #         chosen_student.energy -= 10
-    #         print("Student's energy has been decreased by 10 because his motivation is low :(\n")
-    #     else:
-    #         chosen_student.knowledge += 15
-    #         print("Student's knowledge has been increased by 15!\n")
-
-
+   
     def presentation(self):
-        for student in Student.create_by_csv('data/students.csv'):
-                remember = student.knowledge
-                student.knowledge = int(student.knowledge) + int(student.motivation) + int(student.energy/100)*int(student.motivation/4) + int(student.energy/6)
-                # + int((self.engagement/100)) + int(int((self.engagement/100)*(student.motivation/4))) + int(student.energy/6)
-                end_student_knowledge = student.knowledge - remember
-                print("Student {} knowledge has been increased by {}.".format(student.first_name, end_student_knowledge) )
+       for student in Student.create_by_csv('data/students.csv'):
+               remember = student.knowledge
+               student.knowledge = student.knowledge + int((self.engagement/100)) + int(int((self.engagement/100)*(student.motivation/4))) + int(student.energy/6)
+               end_student_knowledge = student.knowledge - remember
+               print("Student {} knowledge has been increased by {}.".format(student.first_name, end_student_knowledge) )
 
-<<<<<<< HEAD
+
 
 
     def choose_student():
@@ -87,18 +73,14 @@ class CodecoolClass:
 
     
 
-=======
+
     def call_up():
         print('\ncall_up')
->>>>>>> aff9066e0c139e5bb91f9306f48c2d9d3f476332
+
 
     
         
 
-    def call_up(self):
-        
-
-        print('\ncall_up')
 
     def coffee(self):
         
@@ -137,11 +119,11 @@ class CodecoolClass:
             time.sleep(4)
             choosen_student.knowledge += 50
 
-<<<<<<< HEAD
+
     def checkpoing(self):
         print('\nheckpoing')
 
-=======
+
     def choose_student():
         student_array = Student.create_by_csv('data/students.csv')
         number = 1
@@ -160,13 +142,11 @@ class CodecoolClass:
             except:
                 print("Type an integer...\n")
 
-    def checkpoing():
-        print('\nheckpoing')
-
+  
     def is_int(value):
         try:
             int(value)
             return True
         except:
             return False
->>>>>>> aff9066e0c139e5bb91f9306f48c2d9d3f476332
+
