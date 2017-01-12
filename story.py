@@ -23,15 +23,19 @@ def choose_activity(mentor):
     elif option == '3':
         codecool_krk.coffee()
     elif option == '4':
-        codecool_krk.private_mentoring()
+        os.system('clear')
+        print('Choose a student for private mentoring:\n')
+        chosen_student = choose_student()
+        print('\n')
+        codecool_krk.private_mentoring(mentor, chosen_student)
     elif option == '5':
         codecool_krk.checkpoint(mentor)
     elif option == '6':
         s_table.student_table()
     elif option == '7':
         students_object_list = Student.create_by_csv('data/students.csv')
-        #counter = 1 UNHASH IF YOU WANT TO PRINT STUDENT LIST
-        #for student in students_object_list:
+        # counter = 1 UNHASH IF YOU WANT TO PRINT STUDENT LIST
+        # for student in students_object_list:
         #    print(str(counter) + ".", student.first_name, student.last_name)
         #    counter += 1
         full_name = input("Type a student: ")
@@ -48,7 +52,8 @@ def choose_activity(mentor):
 
 def story_menu():
 
-    options = ['Presentation', 'Call up', 'Cofee', 'Private Mentoring', 'Checkpoint', 'print student table', 'find student by full name', 'find mentor by full name', '0 to exit']
+    options = ['Presentation', 'Call up', 'Cofee', 'Private Mentoring', 'Checkpoint',
+               'print student table', 'find student by full name', 'find mentor by full name', '0 to exit']
 
     print('Event list:')
     for i, n in enumerate(options):
@@ -82,7 +87,7 @@ def choose_student():
         number += 1
     while True:
         try:
-            choosen = int(input("Choose a student: "))
+            choosen = int(input("\nType a number: "))
             if choosen > 0 and choosen <= len(student_array):
                 print("You have chosen ", student_array[choosen - 1])
                 return student_array[choosen - 1]
