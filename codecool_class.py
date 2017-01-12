@@ -169,25 +169,6 @@ class CodecoolClass:
                 print('\nKeep going! Your score is: YELLOW CARD.')
         time.sleep(2)
 
-
-    def choose_student():
-        student_array = Student.create_by_csv('data/students.csv')
-        number = 1
-        for student in student_array:
-            print(number, student.first_name)
-            number += 1
-        while True:
-            try:
-                choosen = int(input("Choose a student: "))
-                if choosen > 0 and choosen <= len(student_array):
-                    print("You have chosen ", student_array[choosen - 1])
-                    return student_array[choosen - 1]
-                else:
-                    print("Type correct number...\n")
-                    continue
-            except:
-                print("Type an integer...\n")
-
     def is_int(value):
         try:
             int(value)
