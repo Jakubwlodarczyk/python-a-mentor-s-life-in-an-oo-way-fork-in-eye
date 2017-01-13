@@ -276,13 +276,3 @@ class CodecoolClass:
                   '|', students[8], ' ' * (11 - len(str(students[8]))))
         print('')
         return students_list
-
- 
-
-    def is_int(value):
-        try:
-            int(value)
-            return True
-        except:
-            return False
-
