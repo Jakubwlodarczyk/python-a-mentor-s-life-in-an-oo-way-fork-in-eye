@@ -134,10 +134,14 @@ class CodecoolClass:
                 print("{} decided to go by the board anyway. {}'s knowledge increases by 10 and is now {}.".format(
                     student.first_name, student.first_name, student.knowledge))
 
-    def coffee(self, student):
+
+    def drink_coffee(self, chosen_student):
+
+
         '''
         Operates on student object by increasing energy values.
         '''
+
         os.system('clear')
         print('Students want to drink coffee, but the work is not done yet. \nYou can allow only one student to go kitchen room. Choose one from the list:\n')
         student = []
@@ -146,7 +150,15 @@ class CodecoolClass:
         if student[2] == ' True':
             chosen_student.energy += 10
             chosen_student.motivation += 10
-            print("{}'s mood increased: Energy: {}, motivation: {}".format(student[0], student[3], student[4]))
+
+            print('.')
+            time.sleep(0.5)
+            print('.')
+            time.sleep(1)
+            print("{}'s mood increased. Now energy = {}, motivation = {}".format(student[0], chosen_student.energy, chosen_student.motivation))
+            time.sleep(1)
+            print("Good.")
+
         else:
             print("%s don't drink coffee" % student[0])
         if chosen_student.energy >= 100:
@@ -230,3 +242,44 @@ class CodecoolClass:
                 mentor.irritation += 10
             else:
                 print("\nStudent's score is: YELLOW CARD")
+
+
+    def students_list(students):
+
+        # students = Student.create_by_csv('data/students.csv')
+        # students = Student
+        students_list = []
+        for student in students:
+            students_list.append([student.first_name, student.last_name, student.year_of_birth,
+                                  student.gender, student.coffee, student.energy, student.knowledge,
+                                  student.motivation, student.sweets])
+        return students_list
+
+    
+    @staticmethod
+    def student_table(students):
+
+        students_list = CodecoolClass.students_list(students)
+        # Student.converter()
+        title_list = ['| First_name | Last_name    | Birth |  Gender  | Coffee   | Energy | Knowledge | Motivation| Sweets']
+
+        print(''.join(title_list))
+        for students in students_list:
+            print('|', students[0], ' ' * (9 - len(students[0])), '|', students[1], ' ' * (11 - len(students[1])),
+                  '|', students[2], ' ' * (4 - len(str(students[2]))), '|', students[3], ' ' * (7 - len(students[3])),
+                  '|', students[4], ' ' * (7 - len(students[4])), '|', students[5], ' ' * (5 - len(str(students[5]))),
+                  '|', students[6], ' ' * (8 - len(str(students[6]))), '|', students[7], ' ' *
+                  (8 - len(str(students[7]))),
+                  '|', students[8], ' ' * (11 - len(str(students[8]))))
+        print('')
+        return students_list
+
+ 
+
+    def is_int(value):
+        try:
+            int(value)
+            return True
+        except:
+            return False
+
