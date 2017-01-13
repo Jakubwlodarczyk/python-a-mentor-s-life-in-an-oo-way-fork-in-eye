@@ -42,13 +42,13 @@ def choose_activity(mentor, codecool_class):
         s_table.student_table()
     elif option == '7':
         os.system('clear')
-        students_object_list = students
+        students_object_list = codecool_class.students
         # counter = 1 UNHASH IF YOU WANT TO PRINT STUDENT LIST
         # for student in students_object_list:
         #    print(str(counter) + ".", student.first_name, student.last_name)
         #    counter += 1
         full_name = input("Type a student: ")
-        codecool_class.find_student_by_full_name(students_object_list, full_name)
+        codecool_class.find_student_by_full_name(full_name)
     elif option == '8':
         os.system('clear')
         mentors_object_list = Mentor.create_by_csv('data/mentors.csv')

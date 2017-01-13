@@ -20,11 +20,14 @@ class CodecoolClass:
         codecool_class = CodecoolClass("Krakow", 2016, mentors, students)
         return codecool_class
 
-    #@staticmethod
+
     def find_student_by_full_name(self, full_name):
         full_name_student = full_name.split()
         checker = 0
         remember = "me"
+        if len(full_name_student) == 1:
+            print("Student has not been found.")
+            return None
         for student in self.students:
             if student.first_name == full_name_student[0] and student.last_name[1:] == full_name_student[1]:
                 checker = 1
@@ -123,12 +126,6 @@ class CodecoolClass:
             print('Student is having heart attack and cannot attend classes')
 
 
-    # def his_or_her():
-    #     chosen_student = CodecoolClass.choose_student()
-    #     student = []
-    #     student.extend([chosen_student.first_name, chosen_student.gender])
-
-
     def private_mentoring(self, mentor, student):
         print('Checking if {} have enought engagement to conduct lessons...'.format(mentor.first_name))
         time.sleep(2)
@@ -186,10 +183,3 @@ class CodecoolClass:
                 print("\nStudent's score is: RED CARD")
             else:
                 print("\nStudent's score is: YELLOW CARD")
-
-    def is_int(value):
-        try:
-            int(value)
-            return True
-        except:
-            return False

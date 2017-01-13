@@ -18,13 +18,12 @@ class Mentor(Person):
 
     @classmethod
     def create_by_csv(cls, filepath):
-        print(cls)
         try:
             with open('data/mentors.csv') as mentor_file:
                 all_mentors = csv.reader(mentor_file, delimiter=',', quotechar=',')
                 mentors_list = []
                 for mentor in all_mentors:
-                    mentors = cls(mentor[0], mentor[1], mentor[2], mentor[3], mentor[4],
+                    mentors = Mentor(mentor[0], mentor[1], mentor[2], mentor[3], mentor[4],
                                      mentor[5], mentor[6], mentor[7], mentor[8], mentor[9])
                     mentors_list.append(mentors)
         except FileNotFoundError:
