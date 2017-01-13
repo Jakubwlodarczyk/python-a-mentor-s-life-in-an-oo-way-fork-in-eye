@@ -112,14 +112,14 @@ class CodecoolClass:
 
         os.system('clear')
         print('Students want to drink coffee, but the work is not done yet. \nYou can allow only one student to go kitchen room. Choose one from the list:\n')
-        
+
         student = []
         student.extend([chosen_student.first_name, chosen_student.last_name, chosen_student.coffee, chosen_student.energy, chosen_student.motivation])
         time.sleep(1)
         if student[2] == ' True':
             chosen_student.energy += 10
             chosen_student.motivation += 10
-            print("{}'s mood increased: Energy: {}, motivation: {}".format(student[0],student[3], student[4]))           
+            print("{}'s mood increased: Energy: {}, motivation: {}".format(student[0],student[3], student[4]))
         else:
             print("%s don't drink coffee" % student[0])
         if chosen_student.energy >= 100:
