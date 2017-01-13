@@ -20,12 +20,15 @@ class CodecoolClass:
         codecool_class = CodecoolClass("Krakow", 2016, mentors, students)
         return codecool_class
 
-    @staticmethod
-    def find_student_by_full_name(students_object_list, full_name):
+
+    def find_student_by_full_name(self, full_name):
         full_name_student = full_name.split()
         checker = 0
         remember = "me"
-        for student in students_object_list:
+        if len(full_name_student) == 1:
+            print("Student has not been found.")
+            return None
+        for student in self.students:
             if student.first_name == full_name_student[0] and student.last_name[1:] == full_name_student[1]:
                 checker = 1
                 remember = student
@@ -123,12 +126,6 @@ class CodecoolClass:
             print('Student is having heart attack and cannot attend classes')
 
 
-    # def his_or_her():
-    #     chosen_student = CodecoolClass.choose_student()
-    #     student = []
-    #     student.extend([chosen_student.first_name, chosen_student.gender])
-
-
     def private_mentoring(self, mentor, student):
         print('Checking if {} have enought engagement to conduct lessons...'.format(mentor.first_name))
         time.sleep(2)
@@ -153,8 +150,8 @@ class CodecoolClass:
             student.knowledge += 50
 
     def checkpoint(self, mentor, student):
-        print('\nCheckpoint time!')
         os.system('clear')
+        print('\nCheckpoint time!')
         time.sleep(2)
         print('\nCheckpoint starts!\n', mentor.first_name, '<', mentor.nickname,
               '>', mentor.last_name, ' vs ', student.first_name, student.last_name)
@@ -172,24 +169,29 @@ class CodecoolClass:
             time.sleep(4)
             if knowledge_level < 80 and motivation_level < 80:
                 print("\nStudent's score is: RED CARD")
+                student.energy -= 10
+                student.motivation -= 10
+                mentor.irritation += 10
             elif knowledge_level < 80 and motivation_level > 80:
                 print("\nStudent's score is: YELLOW CARD")
             else:
                 print("\nVictory! Student's score is: GREEN CARD!")
+                student.energy += 10
+                student.motivation += 10
+                mentor.irritation -= 10
         elif irritation_level <= 59:
             print("\nIt is lucky day for students! Irritation level is low.")
             print('\nWhat is a string?')
             time.sleep(4)
             if knowledge_level > 30 and motivation_level > 20:
                 print("\nStudent is smart and so motivated! Student's score is: GREEN CARD!")
+                student.energy += 10
+                student.motivation += 10
+                mentor.irritation -= 10
             elif knowledge_level < 20 and motivation_level < 10:
                 print("\nStudent's score is: RED CARD")
+                student.energy -= 10
+                student.motivation -= 10
+                mentor.irritation += 10
             else:
                 print("\nStudent's score is: YELLOW CARD")
-
-    def is_int(value):
-        try:
-            int(value)
-            return True
-        except:
-            return False
