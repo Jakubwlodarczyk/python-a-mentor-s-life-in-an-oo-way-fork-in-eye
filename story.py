@@ -6,14 +6,10 @@ import os
 import time
 
 
-# students = Student.create_by_csv('data/students.csv')
-#
-# mentors = Mentor.create_by_csv('data/mentors.csv')
-# codecool_class = CodecoolClass('Krakow', 2016, mentors, students)
-# s_table = Student
-
-
 def choose_activity(mentor, codecool_class):
+    '''
+    Allows to choose event to happen.
+    '''
     user_input = input('Please enter a number: ')
     option = user_input
     if option == "1":
@@ -43,15 +39,11 @@ def choose_activity(mentor, codecool_class):
     elif option == '7':
         os.system('clear')
         students_object_list = codecool_class.students
-        # counter = 1 UNHASH IF YOU WANT TO PRINT STUDENT LIST
-        # for student in students_object_list:
-        #    print(str(counter) + ".", student.first_name, student.last_name)
-        #    counter += 1
         full_name = input("Type a student: ")
         codecool_class.find_student_by_full_name(full_name)
     elif option == '8':
         os.system('clear')
-        mentors_object_list = Mentor.create_by_csv('data/mentors.csv')
+        mentors_object_list = codecool_class.mentors
         full_name = input("Type a mentor: ")
         codecool_class.find_mentor_by_full_name(mentors_object_list, full_name)
     elif option == '0':
@@ -64,8 +56,10 @@ def choose_activity(mentor, codecool_class):
 
 
 def story_menu():
-
-    options = ['Presentation', 'Call up', 'Cofee', 'Private Mentoring', 'Checkpoint',
+    '''
+    Display menu of activities.
+    '''
+    options = ['Make presentation', 'Call up student to the board', 'Make student drink coffee', 'Do private Mentoring', 'Do checkpoint',
                'Print student table', 'Find student by full name', 'Find mentor by full name']
 
     print('\nEvent list:')
@@ -75,6 +69,10 @@ def story_menu():
 
 
 def choose_mentor(codecool_class):
+    '''
+    Allows to choose mentor object to play with.
+    Gives back a mentor object choosen from list of mentors.
+    '''
     counter = 1
     for mentor in codecool_class.mentors:
         print(str(counter) + ".", mentor.first_name, mentor.last_name, mentor.nickname)
@@ -94,7 +92,10 @@ def choose_mentor(codecool_class):
 
 
 def choose_student(codecool_class):
-
+    '''
+    Allows to choose student object to do operations on.
+    Gives back a student object choosen from list of students.
+    '''
     number = 1
     for student in codecool_class.students:
         print(number, student.first_name)
@@ -113,13 +114,16 @@ def choose_student(codecool_class):
 
 
 def main():
-    """Main function"""
+    '''
+    Main function.
+    '''
     codecool_class = CodecoolClass.create_local_school()
-    len_mentors = len(Mentor.create_by_csv('data/mentors.csv'))
+    len_mentors = len(codecool_class.mentors)
+    len_students = len(codecool_class.students)
     print(
-        "School @ {}, in year {} is created, with {} mentors and 53 students\n".format(codecool_class.location,
+        "School @ {}, in year {} is created, with {} mentors and {} students.\n".format(codecool_class.location,
                                                                                        codecool_class.year,
-                                                                                       len_mentors))
+                                                                                       len_mentors, len_students))
     chosen_mentor = choose_mentor(codecool_class)
     while True:
         story_menu()
@@ -128,7 +132,5 @@ def main():
         os.system('clear')
 
 
-
-
-
-main()
+if __name__ == '__main__':
+    main()
