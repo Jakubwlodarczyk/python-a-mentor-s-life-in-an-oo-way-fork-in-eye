@@ -24,7 +24,7 @@ class CodecoolClass:
         return codecool_class
 
     @staticmethod
-    def find_student_by_full_name(self, full_name):
+    def find_student_by_full_name(students_object_list, full_name):
         '''
         Gives back a student with the same full name as the argument from students.
         '''
@@ -36,7 +36,7 @@ class CodecoolClass:
         if len(full_name_student) == 1:
             print("Student has not been found.")
             return None
-        for student in self.students:
+        for student in students_object_list:
             if student.first_name == full_name_student[0] and student.last_name[1:] == full_name_student[1]:
                 #  compares name and surename of student
                 checker = 1
