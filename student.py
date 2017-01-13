@@ -40,6 +40,9 @@ class Student(Person):
 
         return list_of_students
 
+<<<<<<< HEAD
+   
+=======
     def students_list():
 
         students = Student.create_by_csv('data/students.csv')
@@ -83,3 +86,4 @@ class Student(Person):
                 if i == ' False':
                     item[item.index(' False')] = 'Dislike'
         return students_list
+>>>>>>> 8e1aec19ccc64f7c1b944f7e4d87c9fcb6df10b1
