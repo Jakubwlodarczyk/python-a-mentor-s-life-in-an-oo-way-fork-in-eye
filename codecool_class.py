@@ -22,14 +22,15 @@ class CodecoolClass:
 
 
     def find_student_by_full_name(self, full_name):
-        full_name_student = full_name.split()
-        checker = 0
-        remember = "me"
+        full_name_student = full_name.split()  # create list of words from input
+        checker = 0  # if 1, student has been found
+        remember = "me"  # create a remember variable (will return student if found)
         if len(full_name_student) == 1:
             print("Student has not been found.")
             return None
         for student in self.students:
             if student.first_name == full_name_student[0] and student.last_name[1:] == full_name_student[1]:
+                #  compares name and surename of student
                 checker = 1
                 remember = student
         if checker == 1:
@@ -63,7 +64,7 @@ class CodecoolClass:
             remember = student.knowledge
             remember2 = student.knowledge
             student.knowledge = student.knowledge + \
-                int((mentor.engagement / 100)) + int(int((mentor.engagement / 100)
+                int((mentor.engagement / 100)) + int(int((mentor.engagement / 100) #  equation describes how student knowledge increases
                                                          * (student.motivation / 4))) + int(student.energy / 6)
             end_student_knowledge = student.knowledge - remember
             print("Student {} knowledge has been increased by {}. (was {}, now {})".format(student.first_name, end_student_knowledge, remember2, student.knowledge))
