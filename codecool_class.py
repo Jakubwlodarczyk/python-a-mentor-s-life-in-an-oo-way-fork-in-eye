@@ -134,7 +134,7 @@ class CodecoolClass:
                 print("{} decided to go by the board anyway. {}'s knowledge increases by 10 and is now {}.".format(
                     student.first_name, student.first_name, student.knowledge))
 
-<<<<<<< HEAD
+
     def drink_coffee(self, chosen_student):
 
 

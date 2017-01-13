@@ -188,4 +188,40 @@ Gives back a mentor with the same full name as the argument from ```mentors```
 ```Mentor``` object
 =======
 None
->>>>>>> 5743f69c7ff9ae3a3b75b1c1663b8f6a25caa216
+
+
+### ```students_list```
+
+Operates on a list of students from 'create_by_csv' method file and gives back a list of 
+students and creates a list of student objects.
+
+#### Arguments
+   
+* ```students```
+  * data_type: object
+  * description: holds full information about students.
+
+#### Return value
+
+  * data type: list
+  * description: contains a list of students objects
+
+
+### ```student_table```
+
+Operates on a list of students returned from the function 'converter' method and gives back the formatted list wich includes
+title and students list with all data.
+
+#### Arguments
+ * ```students```
+  * data_type: object
+  * description: holds full information about students.
+
+#### Return value
+
+  * data type: list
+  * description: contains a list of students objects
+
+
+
+

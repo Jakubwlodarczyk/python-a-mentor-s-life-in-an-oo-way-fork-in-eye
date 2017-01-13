@@ -37,45 +37,6 @@ Gets a csv file and gives back a list of students
 ```list_of_students```
 
 
-### ```students_list```
-
-Operates on a list of students from 'create_by_csv' method file and gives back a list of 
-students and creates a list of student objects.
-
-#### Arguments
-   None
-
-#### Return value
-
-  * data type: list
-  * description: contains a list of students objects
-
-
-### ```student_table```
-
-Operates on a list of students returned from the function 'converter' method and gives back the formatted list wich includes
-title and students list with all data.
-
-#### Arguments
-   None
-
-#### Return value
-
-  * data type: list
-  * description: contains a list of students objects
-
-
-
-### ```converter```
-Operates with the list returned from the function students_list 
-
-#### Arguments
-   None
-
-#### Return value
-
-  * data type: list
-  * description: contains a list of students objects
 
 
 ## Instance methods
