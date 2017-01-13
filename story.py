@@ -40,7 +40,7 @@ def choose_activity(mentor, codecool_class):
         os.system('clear')
         students_object_list = codecool_class.students
         full_name = input("Type a student: ")
-        codecool_class.find_student_by_full_name(students_object_list, full_name)
+        codecool_class.find_student_by_full_name(full_name)
     elif option == '8':
         os.system('clear')
         mentors_object_list = codecool_class.mentors

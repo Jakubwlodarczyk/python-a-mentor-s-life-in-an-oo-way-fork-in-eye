@@ -42,6 +42,10 @@ All of the arguments of the class itself.
 
 Check for wrong value in data.
 
+#### Arguments
+
+All of the arguments of the class itself.
+
 #### Return value
 
 It raise an error, if any of the attributes is empty, and also if the provide gender is not valid
