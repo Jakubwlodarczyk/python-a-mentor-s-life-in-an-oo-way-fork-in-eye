@@ -153,8 +153,8 @@ class CodecoolClass:
             student.knowledge += 50
 
     def checkpoint(self, mentor, student):
-        print('\nCheckpoint time!')
         os.system('clear')
+        print('\nCheckpoint time!')
         time.sleep(2)
         print('\nCheckpoint starts!\n', mentor.first_name, '<', mentor.nickname,
               '>', mentor.last_name, ' vs ', student.first_name, student.last_name)
@@ -172,18 +172,30 @@ class CodecoolClass:
             time.sleep(4)
             if knowledge_level < 80 and motivation_level < 80:
                 print("\nStudent's score is: RED CARD")
+                student.energy -= 10
+                student.motivation -= 10
+                mentor.irritation += 10
             elif knowledge_level < 80 and motivation_level > 80:
                 print("\nStudent's score is: YELLOW CARD")
             else:
                 print("\nVictory! Student's score is: GREEN CARD!")
+                student.energy += 10
+                student.motivation += 10
+                mentor.irritation -= 10
         elif irritation_level <= 59:
             print("\nIt is lucky day for students! Irritation level is low.")
             print('\nWhat is a string?')
             time.sleep(4)
             if knowledge_level > 30 and motivation_level > 20:
                 print("\nStudent is smart and so motivated! Student's score is: GREEN CARD!")
+                student.energy += 10
+                student.motivation += 10
+                mentor.irritation -= 10
             elif knowledge_level < 20 and motivation_level < 10:
                 print("\nStudent's score is: RED CARD")
+                student.energy -= 10
+                student.motivation -= 10
+                mentor.irritation += 10
             else:
                 print("\nStudent's score is: YELLOW CARD")
 
