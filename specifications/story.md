@@ -4,10 +4,7 @@
 An ordinary day in Codecool. 
 
 
-
-
 ## Functions
-
 
 
 ### ```main```
@@ -19,7 +16,6 @@ None
 None
 
 
-
 ### ```choose_activity```
 Choose activity - function to do by choosen mentor (drink coffee, make checkpoint, call up student, make presentation, make private mentoring)
 
@@ -27,6 +23,9 @@ Choose activity - function to do by choosen mentor (drink coffee, make checkpoin
 * ```Mentor```
   * data_type: object
   * description: holds the choosen object mentor
+* ```codecool_class```
+  * data_type: object
+  * description: holds the object of codecool class
 
 #### Return value
 None
@@ -45,21 +44,25 @@ None
 
 
 ### ```choose_mentor```
-Gives back a mentor object choosen from list of students.
+Gives back a mentor object chosen from list of students.
 
 #### Arguments
-None
+* ```codecool_class```
+  * data_type: object
+  * description: holds the object of codecool class
 
 #### Return value
-```Mentor``` object
+The object of chosen mentor
 
 
 
 ### ```choose_student```
-Gives back a student object choosen from list of students.
+Gives back a student object chosen from list of students.
 
 #### Arguments
-None
+* ```codecool_class```
+  * data_type: object
+  * description: holds the object of codecool class
 
 #### Return value
-```Student``` object
+The object of chosen student

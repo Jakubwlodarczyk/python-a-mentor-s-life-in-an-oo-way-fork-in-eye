@@ -51,7 +51,6 @@ class Student(Person):
                                   student.motivation, student.sweets])
         return students_list
 
-    
     @staticmethod
     def student_table():
 

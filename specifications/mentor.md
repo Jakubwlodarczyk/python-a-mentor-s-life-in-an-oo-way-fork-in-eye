@@ -4,7 +4,7 @@
 This class represents a mentor in real life.
 
 ## Parent class
-Person()
+Person
 
 ## Attributes
 
@@ -34,11 +34,11 @@ raise an error, if empty
 
 
 #### Arguments
-arguments of Person() and the class itself
+The path to file which include mentors informations
 
 #### Return value
 
-object list of mentors
+Mentors list object
 
 
 ## Instance methods

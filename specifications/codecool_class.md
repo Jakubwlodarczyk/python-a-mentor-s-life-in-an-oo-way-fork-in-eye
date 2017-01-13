@@ -37,14 +37,41 @@ None
 
 
 
+### ```find_student_by_full_name```
+
+Gives back a student with the same full name as the argument from ```students```
+
+#### Arguments
+* ```full_name```
+  * data_type: string
+  * description: holds the full name of the student to be found
+
+#### Return value
+```Student``` object
+
+
+
+### ```find_mentor_by_full_name```
+Gives back a mentor with the same full name as the argument from ```mentors```
+
+#### Arguments
+* ```full_name```
+  * data_type: string
+  * description: holds the full name of the mentor to be found
+
+#### Return value
+```Mentor``` object
+
+
+
 ### ```make_presentation```
 
 Operates on list of students objects and mentor object by increasing or decreasing motivation, energy, knowledge and engagement values .
 
 #### Arguments
 * ```Mentor```
- * data type: object
- * description: holds information about mentor
+  * data type: object
+  * description: holds information about mentor
 
 #### Return value
 None
@@ -131,32 +158,3 @@ All of the arguments of the class itself.
 
 #### Return value
 None
-
-
-
-### ```find_student_by_full_name```
-
-Gives back a student with the same full name as the argument from ```students```
-
-#### Arguments
-* ```full_name```
-  * data_type: string
-  * description: holds the full name of the student to be found
-
-#### Return value
-```Student``` object
-
-
-
-### ```find_mentor_by_full_name```
-Gives back a mentor with the same full name as the argument from ```mentors```
-
-#### Arguments
-* ```full_name```
-  * data_type: string
-  * description: holds the full name of the mentor to be found
-
-#### Return value
-```Mentor``` object
-
-

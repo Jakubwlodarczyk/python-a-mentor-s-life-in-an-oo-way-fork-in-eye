@@ -8,31 +8,6 @@ Person
 
 ## Attributes
   
-
-* ```first_name```
-  * data type: string
-  * description: stores the student's first name
-
-* ```last_name```
-  * data type: string
-  * description: stores the student's last name
-
-* ```year_of_birth```
-  * data type: integer
-  * description: stores the student's year of birth   
-  
-* ```gender```
-  * data type: string
-  * description: stores the student's gender
-
-* ```coffee```
-  * data type: string
-  * description: stores "True", if student likes coffee or "False", if student dislike it.
-
-* ```energy```
-  * data type: integer
-  * description: stores the current energy level (from 0 to 100)
-
 * ```knowledge```
   * data type: integer
   * description: stores the knowledge level of the student in programming (from 0 to 100)
@@ -44,7 +19,6 @@ Person
 * ```sweets```
   * data type: boolean
   * description: stores information if student likes sweets or not
-
 
 
 ## Class methods
@@ -66,7 +40,7 @@ Gets a csv file and gives back a list of students
 ### ```students_list```
 
 Operates on a list of students from 'create_by_csv' method file and gives back a list of 
-students and creates a list of lists with all data
+students and creates a list of student objects.
 
 #### Arguments
    None
@@ -74,7 +48,7 @@ students and creates a list of lists with all data
 #### Return value
 
   * data type: list
-  * description: ```students_list``` - list (which includes lists with full data of every student)
+  * description: contains a list of students objects
 
 
 ### ```student_table```
@@ -88,7 +62,7 @@ title and students list with all data.
 #### Return value
 
   * data type: list
-  * description: ```students_list```
+  * description: contains a list of students objects
 
 
 
@@ -101,7 +75,7 @@ Operates with the list returned from the function students_list
 #### Return value
 
   * data type: list
-  * description: ```students_list```
+  * description: contains a list of students objects
 
 
 ## Instance methods
