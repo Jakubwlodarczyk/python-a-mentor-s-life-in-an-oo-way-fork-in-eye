@@ -21,6 +21,13 @@ class Student(Person):
 
         self.sweets = int(sweets)
 
+        if knowledge == '':
+            raise ValueError('knowledge cannot be empty')
+        if motivation == '':
+            raise ValueError('motivation cannot be empty')
+        if sweets == '':
+            raise ValueError('sweets cannot be empty')
+
     def __str__(self):
         return "{}{}".format(self.first_name,  self.last_name)
 
