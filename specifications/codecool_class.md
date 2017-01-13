@@ -104,7 +104,7 @@ None
 ### ```do_checkpoint```
 
 Operates on student and mentor objects.
-Checks mentor's irritation level and student's knowledge and motivation level.
+Checks mentor's irritation level and student's energy and motivation level.
 
 #### Arguments
 * ```Mentor```
@@ -158,5 +158,3 @@ Gives back a mentor with the same full name as the argument from ```mentors```
 
 #### Return value
 ```Mentor``` object
-
-
